@@ -20,12 +20,10 @@ import {
 } from "./style";
 import Comment from "./swipableMenu";
 import { Link, useParams } from "react-router-dom";
-import { motorsCarCard } from "../../test/motorsCarData";
 
 const BASEURL = "http://localhost:5050/api/v1";
 
 const Aidal = () => {
-
   const { id } = useParams();
   const [dataByID, setDataByID] = useState("");
 
@@ -38,7 +36,7 @@ const Aidal = () => {
           } catch (error) {
               console.error("Error fetching motor:", error);
               // Handle error gracefully, e.g., display an error message
-          }
+          } 
       };
       fetchMotor();
   }, [id]);

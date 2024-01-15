@@ -1,13 +1,11 @@
 import React from "react";
 import img from "../../../assets/car.png";
 import { MenuItem, TextField } from "@mui/material";
-import { motorsCarCard } from "../../test/motorsCarData";
 import { Carname, Review, ReviewsCard, ReviewsDataRight } from "./style";
 const names = ["Best", "Medium", "Low"];
 const BASEURL = "http://localhost:5050/api/v1";
 
 const Items = () => {
-  const carDetail = motorsCarCard.CarInfo;
   const [personName, setPersonName] = React.useState([]);
   const [allData, setAllData] = React.useState([]);
 

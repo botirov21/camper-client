@@ -35,7 +35,7 @@ root.render(
         <Route path="location" element={<Location />} />
         <Route path="card" element={<AddToCard />} />
         <Route path="comparemodels" element={<CompareModels />} />
-        <Route path="orders" element={<Orders />} />
+        <Route path="orders/:id" element={<Orders />} />
       </Routes>
       <Footer />
     </BrowserRouter>

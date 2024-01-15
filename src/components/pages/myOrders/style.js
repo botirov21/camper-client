@@ -35,6 +35,7 @@ height: 180px;
 border-radius: 20px;
 background: #FFF;
 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+margin-bottom:5%;
 @media (max-width: 420px) {
     display: flex;
     flex-direction: column;
