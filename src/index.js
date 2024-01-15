@@ -1,0 +1,43 @@
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import Navbar from "./components/navbar/navbar";
+import Footer from "./components/footer/footer";
+import Login from "./components/navbar/loginpage/login";
+import Register from "./components/navbar/regiterfom/register";
+import Aidal from "./components/pages/Aidal/carInfoById";
+import Places from "./components/pages/CampingPlaces/Places";
+import Location from "./components/pages/Location/Location";
+import "./index.css";
+import AddToCard from "./components/pages/AddToCard/AddToCard";
+import CompareModels from "./components/pages/CompareModels/CompareModels";
+import Orders from "./components/pages/myOrders/orders";
+import DisplayNavbar from "./components/navbar/DisplayNavbar";
+import Home from "./components/home/home";
+import Motor from "./components/pages/motor/motor";
+
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <BrowserRouter>
+      <DisplayNavbar>
+         <Navbar />
+      </DisplayNavbar>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="home" element={<Home/>} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="aidal/:id" element={<Aidal />} />
+        <Route path="motors" element={<Motor/>} />
+        <Route path="places" element={<Places />} />
+        <Route path="location" element={<Location />} />
+        <Route path="card" element={<AddToCard />} />
+        <Route path="comparemodels" element={<CompareModels />} />
+        <Route path="orders" element={<Orders />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+);
+

@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+height: 614px;
+@media (max-width: 420px)  {
+  width: 100%;
+  height: 626px;
+}
+}
+.email {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.email input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: rgba(55, 55, 55, 0.1);
+  border: none;
+padding: 0 0 0 60px;
+  margin-top: 10px;
+
+  @media  screen and(max-width: 420px)  {
+    width: 100%;
+    height: 50px;
+  }
+}
+.email label {
+  color: rgba(55, 55, 55, 0.8);
+  font-size: 16px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: auto;
+@media screen and (max-width: 420px) {
+  width: 100%;
+height: 50px;
+flex-shrink: 0;
+
+}
+}
+.password {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
+.password input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: rgba(55, 55, 55, 0.1);
+  border: none;
+padding: auto;
+  margin-top: 10px;
+  @media (max-width: 420px) {
+    width: 100%;
+  height: 50px;
+  }
+}
+.password label {
+  width: 100%;
+  color: rgba(55, 55, 55, 0.8);
+  font-size: 16px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 15px;
+  @media (max-width: 414px) {
+    width: 100%;
+  height: 50px;
+  }
+}
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 60px;
+  margin-top: 15px;
+}
+.checkbox a {
+  color: #373737;
+  font-size: 12px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+.check {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.check input {
+  height: 22px;
+  border-radius: 5px;
+  background: rgba(55, 55, 55, 0.15);
+
+}
+.check label {
+  color: #373737;
+  font-size: 14px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+}
+.signin {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  background: var(--blue, #006dab);
+  color: #fff;
+  font-size: 15px;
+  font-family: monospace;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 20px;
+  @media (max-width: 420px) {
+    width: 100%;
+  height: 50px;
+  }
+}
+.or {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 20px;
+}
+.or h3{
+    color: #6D6D6D;
+font-size: 14px;
+font-family: monospace;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.logos {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  @media (max-width: 420px) {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+}
+.circle-green {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 46px;
+  background: #039600;
+}
+.circle-red {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 46px;
+  background: #bc0000;
+}
+.circle-yellow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 46px;
+  background: #ffc700;
+}
+.register {
+  width: 100%;
+  padding: 0 130px 0 130px;
+  height: 50px;
+  border-radius: 10px;
+  background: var(--blue, #006dab);
+  color: #fff;
+  font-size: 15px;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: none;
+  margin-top: 20px;
+  @media (max-width: 420px) {
+    width: 100%;
+  height: 50px;
+  }
+}
