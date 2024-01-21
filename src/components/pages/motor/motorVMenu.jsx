@@ -46,10 +46,12 @@ const MotorsVMenu = () => {
                   gap: "10px",
                 }}
               > 
-              <Link to={`/orders/${data._id}`}>
-                <a>Oreder</a>
+              <Link to={`/aidal/${data._id}`}>
+              <button>Order</button>
               </Link>
-                <a href="/comparemodels">Compare</a>
+              <Link to={`/comparemodels/${data._id}`}>
+              <button>Compare</button>
+              </Link>
               </div>
             </Orders>
         );

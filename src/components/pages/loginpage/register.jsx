@@ -1,46 +1,59 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
+const BASEURL = "http://localhost:5050/api/v1/";
+
+
 
 const Register = () => {
   // Create state variables to hold the form field values and errors
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [errors, setErrors] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
-  // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const newErrors = {};
 
-    // Basic validation to check for empty fields and password matching
-    if (!email.trim()) {
-      newErrors.email = 'Email is required';
-    }
 
-    if (!password.trim()) {
-      newErrors.password = 'Password is required';
-    }
+  const handleRegister =async()=>{
+    // e.preventDefault(); // Prevent form submission
 
+    // Validate repeated password
     if (password !== repeatPassword) {
-      newErrors.repeatPassword = 'Passwords do not match';
+      setErrors({ repeatPassword: 'Passwords do not match' });
+      return;
     }
-
-    // Check if there are any errors before submitting the form
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-    } else {
-      // Form is valid, we can submit the data here
-      // For this example, we'll just log the values
-      console.log('Form submitted:', { email, password });
+    try {
+      const response = await fetch(`${BASEURL}auth/register`, {
+        method: "POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          email:email,
+          password:password
+        })
+      }
+      )
+      const data = await response.json()
+      if(response.ok){
+        navigate("/"); // Execute the navigation
+        alert("Succesfuly registered ");
+        console.log(response)
+      } else {
+        // Handle non-200 responses appropriately
+        throw new Error(data.message || "Registration failed");
+      }
+    } catch (error) {
+      alert("Registration failed: " + error.message);
     }
-  };
+  }  
 
   return (
     <div>
       <div className="container">
         <h1>Registrate</h1>
-        <form onSubmit={handleSubmit}>
+        <div>
           <div className="email">
             <label htmlFor="email">Email</label>
             <input
@@ -80,12 +93,10 @@ const Register = () => {
               <label>Keep me logged in</label>
             </div>
           </div>
-          <Link to="/home">
-          <button className="register" type="submit">
+          <button className="register" type="submit" onClick={handleRegister}>
             Registrate
           </button>
-          </Link>
-        </form>
+        </div>
       </div>
     </div>
   );

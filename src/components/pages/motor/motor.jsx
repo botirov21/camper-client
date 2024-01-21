@@ -14,7 +14,6 @@ import {
   SelectionDiv,
   SelectionNumbers,
 } from "./motorStyle.js";
-import { motorsCarCard } from "../../test/motorsCarData.js";
 import { Link } from "react-router-dom";
 import CaravanController from "./motorController.jsx";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
@@ -24,21 +23,6 @@ import CarvanSwitchControl from "./motorSwitchController.jsx";
 
 const Motor = ({ onClick }) => {
   const [active, setActive] = useState(true)
-  const [filteredData, setFilteredData] = useState(motorsCarCard.CarInfo);
-  const handleClick = () => {
-    const sortedCars = [...motorsCarCard.CarInfo];
-    sortedCars.sort((a, b) => {
-      const nameA = a.car.name.toLowerCase();
-      const nameB = b.car.name.toLowerCase();
-      return nameA.localeCompare(nameB);
-    });
-
-    const filteredCars = sortedCars.filter((data) =>
-      data.car.name.startsWith("르벤투스")
-    );
-
-    setFilteredData(filteredCars);
-  };
   return (
     <div style={{ background: "#fafafa" }}>
       <MotorsBack>

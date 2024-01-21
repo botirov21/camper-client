@@ -23,7 +23,6 @@ const CaravanHMenu = () => {
     <Order>
       {allData.slice(0, 5).map((data)=>{
         return(
-          <Link to={`/aidal/${data._id}`}>
           <HMenuDesign>
           <OrderLeft>
             <ImageOfOffer/>
@@ -39,12 +38,15 @@ const CaravanHMenu = () => {
                 </div>
               </Writings>
               <Writings>
-              <OrderButton>Order</OrderButton>
-              <OrderButton>Compare</OrderButton>
+              <Link to={`/aidal/${data._id}`}>
+               <OrderButton>Order</OrderButton>
+              </Link>
+              <Link to={`/comparemodels/${data._id}`}>
+               <OrderButton>Compare</OrderButton>
+              </Link>
               </Writings>
           </OrderRight>
       </HMenuDesign>
-      </Link>
         )
       })}
 </Order>

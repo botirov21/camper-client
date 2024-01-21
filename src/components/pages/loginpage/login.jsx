@@ -1,35 +1,64 @@
 import React, { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import "./login.css";
 import naver from "../../../assets/naver logo.png";
 import google from "../../../assets/google-ion.png";
 import ktalk from "../../../assets/kakao-talk-fill.png";
 
+const BASEURL = "http://localhost:5050/api/v1/";
+
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const history = useHistory();
+  // const [validEmail, setValidEmail] = useState("");
+  // const [validPassword, setValidPassword] = useState("");
+  const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    // Validation check
-    if (!email || !password) {
-      alert("Please enter both email and password.");
-      return;
+  //   // Validation check
+  //   if (!validEmail || !validPassword) {
+  //     alert("Please enter both email and password.");
+  //     return;
+  //   }
+
+  //   console.log(validEmail);
+  //   console.log(validPassword);
+
+  //   // history.push("/");
+  // };
+
+  const handleLogin =async()=>{
+    try {
+      const response = await fetch(`${BASEURL}auth/login`, {
+        method: "POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          email:email,
+          password:password
+        })
+      }
+      )
+      const data = await response.json()
+      if(response.ok){
+        navigate("/home")
+      }
+      else {
+        throw new Error(data.message || "Registration failed");
+      }
+    } catch (error) {
+     alert("Password or email is wrong")
     }
-
-    console.log(email);
-    console.log(password);
-
-    // history.push("/");
-  };
-
+  }  
   return (
     <body>
       <div className="container">
         <h1>Sign In</h1>
-        <form onSubmit={handleSubmit}>
+        <div>
           <div className="email">
             <label htmlFor="email">Email</label>
             <input
@@ -60,13 +89,11 @@ const Login = () => {
             </div>
           </div>
           <div>
-            <Link to="/home">
-            <button className="signin" type="submit">
+            <button className="signin" type="submit" onClick={handleLogin}> 
               Sign In
             </button>
-            </Link>
           </div>
-        </form>
+        </div>
         <div className="or">
           <h3>Or</h3>
         </div>
@@ -91,7 +118,7 @@ const Login = () => {
           <button className="register">CREATE ACCOUNT</button>
         </Link>
       </div>
-    </body>
+    </body>   
   );
 };
 
