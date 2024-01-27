@@ -45,6 +45,93 @@ const MotorHMenu = () => {
     fetchData();
   }, []);
 
+//chekboxcheking by car brand
+  const handleAdriaCheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.brand === "Adria");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handleSwiftCheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.brand === "Swift");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handleBaileyCheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.brand === "Bailey");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+
+// checkbox checking by number of people
+  const handlePeople3heckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.seats === "3");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handlePeople4CheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.seats === "4");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handlePeople5CheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.seats === "5");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+
+//checkbox  cheking by Licence
+  const handleLicenceACheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.licence === "A");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handleLicenceBCheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.licence === "B");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+  const handleLicenceCCheckboxClick = () => {
+    if (checkActive) {
+      const checkedBox = allData.filter((data) => data.licence === "C");
+      setFilteredCaravan(checkedBox);
+    } else {
+      setFilteredCaravan(allData);
+    }
+    setCheckActive(!checkActive);
+  };
+
 
 //checkbox  cheking by Location
   const handleLocationBusanCheckboxClick = () => {
@@ -56,7 +143,6 @@ const MotorHMenu = () => {
     }
     setCheckActive(!checkActive);
   };
-
   const handleLocationSeoulCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.location === "Seoul");
@@ -75,65 +161,7 @@ const MotorHMenu = () => {
     }
     setCheckActive(!checkActive);
   };
-// checkbox checking by number of people
 
-  const handlePeople3heckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.people === "3");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
-
-  const handlePeople4CheckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.people === "4");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
-
-  const handlePeople5CheckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.people === "5");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
-  //chekboxcheking by car company
-  const handleAdriaCheckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.company === "Adria");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
-  const handleSwiftCheckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.company === "Swift");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
-  const handleBaileyCheckboxClick = () => {
-    if (checkActive) {
-      const checkedBox = allData.filter((data) => data.company === "Bailey");
-      setFilteredCaravan(checkedBox);
-    } else {
-      setFilteredCaravan(allData);
-    }
-    setCheckActive(!checkActive);
-  };
   return (
     <Bigcontainer>
       <CostContainer>
@@ -189,15 +217,15 @@ const MotorHMenu = () => {
               <AccordionDetails>
                 <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
                 <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
+                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceACheckboxClick} />
                     <div><p>A</p></div>
                   </div>
                   <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
+                    <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceBCheckboxClick} />
                     <div><p>B</p></div>
                   </div>
                   <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
+                    <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceCCheckboxClick}/>
                     <div><p>C</p></div>
                   </div>
                 </Typography>
@@ -241,37 +269,23 @@ const MotorHMenu = () => {
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
+              <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
+                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
+                    <input  style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationSeoulCheckboxClick}/>
+                    <div><p>Seul</p></div>
+                  </div>  
+                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
+                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationBusanCheckboxClick}/>
+                    <div><p>Busan</p></div>
                   </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
+                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
+                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationGwangjuCheckboxClick}/>
+                    <div><p>Gwangju</p></div>
                   </div>
                 </Typography>
               </AccordionDetails>
             </Accordion>
           </ChoicesCheck>
-        <ChoicesCheck>
-          <div>
-            <input type="checkbox"  onClick={handleLocationSeoulCheckboxClick}/>
-            <label htmlFor="">Seoul</label>
-          </div>
-          <div>
-            <input type="checkbox" onClick={handleLocationBusanCheckboxClick} />
-            <label htmlFor="">Busan</label>
-          </div>
-          <div>
-            <input type="checkbox" onClick={handleLocationGwangjuCheckboxClick}/>
-            <label htmlFor="">Gwangju</label>
-          </div>
-        </ChoicesCheck>
         <CancelButton>
           <div>
             <button>Cancel</button>
@@ -299,7 +313,7 @@ const MotorHMenu = () => {
                   <Writings>
                     <div>
                       <h1>{data.name}</h1>
-                      <p>{data.company}</p>
+                      <p>{data.brand}</p>
                     </div>
                     <div>
                       <h2>{data.cost}</h2>

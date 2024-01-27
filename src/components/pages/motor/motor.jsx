@@ -7,12 +7,15 @@ import {
   ChoicesCheck,
   ComapreCars,
   CostContainer,
+  CostSort,
   ItemContainer,
   ItemSort,
   MotorsBack,
   SelectionCars,
   SelectionDiv,
   SelectionNumbers,
+  SortWrapper,
+  TotalItemDiv,
 } from "./motorStyle.js";
 import { Link } from "react-router-dom";
 import CaravanController from "./motorController.jsx";
@@ -27,18 +30,14 @@ const BASEURL = "http://localhost:5050/api/v1";
 
 const Motor = () => {
   const [active, setActive] = useState(true)
-  const [checkActive, setCheckActive] = useState(true)
-  const [companyCheckBox, setCompanyCheckBox] = useState([]);
-  const [filtredMotors, setFiltredMotors] = useState([]) 
+  const [totalUsers, setTotalUsers] = useState(0);
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}/motors/allMotors`);
-        const motors = await response.json();
-        // setAllData(motors.data);
-        setFiltredMotors(motors.data);
-        setCompanyCheckBox(motors.data);
+        const motor = await response.json();
+        setTotalUsers(motor.data.length);
       } catch (error) {
         console.log("Motor data is wrong:", error);
       }
@@ -56,7 +55,7 @@ const Motor = () => {
   //   setCheckActive(!checkActive);
   // } 
   return (
-    <div style={{ background: "#fafafa" }}>
+    <div>
       <MotorsBack>
         <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
           <Link to="/home">Home /</Link>
@@ -67,32 +66,29 @@ const Motor = () => {
       </MotorsBack>
       <Bigcontainer>
         <ItemContainer>
-          <ItemSort>
-            <div
-              style={{
-                display: "flex",
-                gap: 30,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <h1>Item</h1>
-              <span style={{ color: "#006DAB", fontSize: "18px" }}>25000</span>
-            </div>
-            <SelectionDiv>
-              <label htmlFor="input">Sort by</label>
-              <SelectionCars placeholder="select">
-                <option value="">Motor Standart</option>
-                <option value="">Motor Premium</option>
-                <option value="">Motor Gold</option>
-              </SelectionCars>
-            </SelectionDiv>
-            <MotorController
-              onClick={(state) => {
-                setActive(state);
-              }}
-            />
-          </ItemSort>
+          <SortWrapper>
+            <CostSort>
+              <h1>Cost of cars</h1>
+            </CostSort>
+            <ItemSort>
+              <TotalItemDiv>
+                <h1>Items <span style={{color: '#006DAB'}}>{totalUsers}</span> </h1>
+              </TotalItemDiv>
+              <SelectionDiv>
+                <p>Sort by</p>
+                <SelectionCars placeholder="select">
+                  <option value="">Motor Standart</option>
+                  <option value="">Motor Premium</option>
+                  <option value="">Motor Gold</option>
+                </SelectionCars>
+              </SelectionDiv>
+              <MotorController
+                onClick={(state) => {
+                  setActive(state);
+                }}
+              />
+            </ItemSort>
+          </SortWrapper>
           <MotorSwitchControl active={active} />
         </ItemContainer>
       </Bigcontainer>

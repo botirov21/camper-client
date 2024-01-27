@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const MotorController= ({ onClick }) => {
     const [on, setOn] = useState(true);
     return (
-        <div style={{display: 'flex', border: '1px solid lightgray', borderTopLeftRadius: '5px',  borderBottomLeftRadius: '5px',borderTopRightRadius: '5px',  borderBottomRightRadius: '5px',  }}>
+        <div style={{display: 'flex', border: '1px solid lightgray', borderTopLeftRadius: '5px',  borderBottomLeftRadius: '5px',borderTopRightRadius: '5px',  borderBottomRightRadius: '5px', marginBottom:"5px"  }}>
             <div
                 active={on}
                 onClick={() => {

@@ -4,7 +4,7 @@ import MotorHMenu from "./motorHMenu";
 import MotorsVMenu from "./motorVMenu";
 
 const MotorSwitchControl = ({ active }) => {
-  return <>{active ?  <MotorHMenu /> : <MotorsVMenu/>}</>;
+  return <>{active ?  <MotorsVMenu/> : <MotorHMenu /> }</>;
 };
 
 export default MotorSwitchControl;

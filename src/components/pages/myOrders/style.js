@@ -36,6 +36,7 @@ border-radius: 20px;
 background: #FFF;
 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
 margin-bottom:5%;
+
 @media (max-width: 420px) {
     display: flex;
     flex-direction: column;
@@ -58,6 +59,7 @@ flex-direction: column;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+
 h1{
     color: var(--text, #373737);
 font-family: Montserrat;
@@ -113,6 +115,12 @@ height: 180px;
 border-radius: 20px;
 background: #FFF;
 box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.10);
+:hover {
+    box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
 `
 export const OrderButton = styled.div`
 border-radius: 10px;

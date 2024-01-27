@@ -50,7 +50,7 @@ export const Bigcontainer = styled.div`
   width: 100%;
   height: fit-content;
   gap: 15px;
-  justify-content: start;
+  justify-content: ce;
   align-items: start;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -83,16 +83,16 @@ export const ItemContainer = styled.div`
   align-items: center;
   height: fit-content;
   width: 100%;
-  flex: 4;
 `;
 export const ItemSort = styled.div`
   display: flex;
+  align-items:end;
   justify-content: space-around;
   gap: 20px;
-  width: 90%;
+  width: 80%;
   height: fit-content;
-  border-bottom: 1px solid black;
-
+  border-bottom: solid 1px rgba(55, 55, 55, 0.5);
+  
   h1 {
     color: #373737;
     font-family: monospace;
@@ -101,18 +101,55 @@ export const ItemSort = styled.div`
     font-weight: 600;
     line-height: 100%;
   }
+  @media (max-width: 440px) {
+    width: 100%;
+  }
+`;
+export const CostSort = styled.div`
+display: flex;
+align-items: end;
+  border-bottom: solid 1px rgba(55, 55, 55, 0.5);
+  width: 16%;
+  @media (max-width: 440px) {
+    display: none;
+  }
+`
+export const SortWrapper = styled.div`
+display: flex;
+gap: 45px;
+width: 100%;
+padding: 0 20px;
+`
+export const OrderSort = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 100%;
+  height: fit-content;
+  gap: 20px;
+  padding: 0 30px;
+  @media (max-width: 850px) {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    height: fit-content;
+  }
+  @media (max-width: 440px) {
+    display: grid;
+    grid-template-columns: auto;
+    width: 100%;
+    height: fit-content;
+  }
 `;
 export const SelectionDiv = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: solid 1px rgba(55, 55, 55, 0.5);
-  justify-content: space-between;
+  justify-content:end;
   align-items: center;
   gap: 15px;
-  width: 100%;
+  width: 80%;
   padding-bottom: 5px;
   height: fit-content;
-  label {
+  p{
     color: var(--text, #373737);
     font-family: monospace;
     font-size: 16px;
@@ -120,10 +157,30 @@ export const SelectionDiv = styled.div`
     font-weight: 500;
     line-height: 100%;
   }
+  @media (max-width: 440px) {
+    gap: 3px;
+
+  }
 `;
+export const TotalItemDiv = styled.div`
+ display: flex;
+ align-items:center;
+ h1{
+ display: flex;
+ align-items:center;
+ gap:10px;
+ }
+   @media (max-width: 440px) {
+    h1{
+
+ gap:5px;
+ }
+
+  }
+`
 export const SelectionCars = styled.select`
   width: 50%;
-  height: 30px;
+  height: 40px;
   border-radius: 5px;
   border: 1px solid rgba(55, 55, 55, 0.3);
   color: rgba(55, 55, 55, 0.6);
@@ -163,31 +220,12 @@ export const OptionsCheck = styled.div`
     margin-top: 100px;
   }
 `;
-export const VMenuDesign = styled.div`
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  width: 100%;
-  height: fit-content;
-  gap: 50px;
-  padding: 50px;
-  @media (max-width: 850px) {
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 100%;
-    height: fit-content;
-  }
-  @media (max-width: 450px) {
-    display: grid;
-    grid-template-columns: auto;
-    width: 100%;
-    height: fit-content;
-  }
-`;
+
 export const Orders = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: start;
+  align-items: center;
   width: 100%;
   height: 307px;
   padding:20px;
@@ -195,6 +233,12 @@ export const Orders = styled.div`
   background: #fff;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
   margin-top: 30px;
+  :hover {
+    box-shadow: 0 5px 35px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+      rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+      rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  }
   h1 {
     color: var(--text, #373737);
     font-family: monospace;
@@ -372,12 +416,4 @@ export const ComapreCars = styled.div`
     line-height: normal;
   }
 `
-export const VmenuWrapper=styled.div`
-display: flex;
-`
-export const VMenuDesignLeft=styled.div`
-display:flex;
-flex-direction:column;
-flex: 1;
-`
-;
+
