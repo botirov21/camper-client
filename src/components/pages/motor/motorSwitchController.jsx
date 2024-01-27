@@ -1,10 +1,10 @@
 import React from "react";
 
-import CaravanHMenu from "./motorHMenu";
-import CaravanVMenu from "./motorVMenu";
+import MotorHMenu from "./motorHMenu";
+import MotorsVMenu from "./motorVMenu";
 
-const CarvanSwitchControl = ({ active }) => {
-  return <>{active ?  <CaravanVMenu /> : <CaravanHMenu/>}</>;
+const MotorSwitchControl = ({ active }) => {
+  return <>{active ?  <MotorHMenu /> : <MotorsVMenu/>}</>;
 };
 
-export default CarvanSwitchControl;
+export default MotorSwitchControl;

@@ -91,6 +91,8 @@ export const ItemSort = styled.div`
   gap: 20px;
   width: 90%;
   height: fit-content;
+  border-bottom: 1px solid black;
+
   h1 {
     color: #373737;
     font-family: monospace;
@@ -143,7 +145,24 @@ export const SelectionNumbers = styled.select`
   gap: 20px;
   border: solid 2px black;
 `;
-
+export const ThinLine = styled.div`
+  width: 100%;
+  height: 1px;
+  background: rgba(55, 55, 55, 0.5);
+`;
+export const OptionsCheck = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  div {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 100px;
+  }
+`;
 export const VMenuDesign = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -352,4 +371,13 @@ export const ComapreCars = styled.div`
     font-weight: 600;
     line-height: normal;
   }
-`;
+`
+export const VmenuWrapper=styled.div`
+display: flex;
+`
+export const VMenuDesignLeft=styled.div`
+display:flex;
+flex-direction:column;
+flex: 1;
+`
+;

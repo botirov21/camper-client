@@ -19,215 +19,81 @@ import CaravanController from "./motorController.jsx";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CarvanSwitchControl from "./motorSwitchController.jsx";
+import MotorController from "./motorController.jsx";
+import MotorSwitchControl from "./motorSwitchController.jsx";
+
+const BASEURL = "http://localhost:5050/api/v1";
 
 
-const Motor = ({ onClick }) => {
+const Motor = () => {
   const [active, setActive] = useState(true)
+  const [checkActive, setCheckActive] = useState(true)
+  const [companyCheckBox, setCompanyCheckBox] = useState([]);
+  const [filtredMotors, setFiltredMotors] = useState([]) 
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${BASEURL}/motors/allMotors`);
+        const motors = await response.json();
+        // setAllData(motors.data);
+        setFiltredMotors(motors.data);
+        setCompanyCheckBox(motors.data);
+      } catch (error) {
+        console.log("Motor data is wrong:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  // const handleCompanyCheckBoxChange = () => {
+  //   if (checkActive) {
+  //     const checkedBox = allData.filter((data) => data.brand === "BMW");
+  //     setFiltredMotors(checkedBox);
+  //   } else {
+  //     setFiltredMotors(allData);
+  //   }
+  //   setCheckActive(!checkActive);
+  // } 
   return (
     <div style={{ background: "#fafafa" }}>
       <MotorsBack>
         <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-          <Link to="/">Home /</Link>
-          <Link to="/motors">Motors</Link>
+          <Link to="/home">Home /</Link>
+          <Link to="/caravan">Caravan</Link>
         </div>
         <h3>Our Ranges</h3>
         <h1>Motors</h1>
       </MotorsBack>
       <Bigcontainer>
-        <CostContainer>
-          <div style={{ borderBottom: "solid 1px rgba(55, 55, 55, 0.5)", width: "100%", paddingTop: "17px", marginLeft: "40px" }} >
-            <h1>Cost of cars</h1>
-          </div>
-          <Adressdiv>
-            <div>
-              <label>From</label>
-              <input type="text" />
-            </div>
-            <div>
-              <label htmlFor="">to</label>
-              <input type="text" />
-            </div>
-          </Adressdiv>
-          <ChoicesCheck>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                  Brand
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography >
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                Company
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                License type
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                Number of travelers
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                  Location
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Aidal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>Knal</p></div>
-                  </div>
-                  <div >
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" />
-                    <div><p>escape</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </ChoicesCheck>
-          <CancelButton>
-            <div>
-              <button>Cancel</button>
-              <button>Search</button>
-            </div>
-          </CancelButton>
-          <ComapreCars>
-            <h1>Compare</h1>
-            <div>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </ComapreCars>
-        </CostContainer>
         <ItemContainer>
           <ItemSort>
+            <div
+              style={{
+                display: "flex",
+                gap: 30,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <h1>Item</h1>
+              <span style={{ color: "#006DAB", fontSize: "18px" }}>25000</span>
+            </div>
             <SelectionDiv>
-              <div>
-                <h1>Item 250000</h1>
-              </div>
               <label htmlFor="input">Sort by</label>
               <SelectionCars placeholder="select">
-                <option value="">Car</option>
-                <option value="">Car</option>
-                <option value="">Car</option>
-                <option value="">Car</option>
-                <option value="">Car</option>
+                <option value="">Motor Standart</option>
+                <option value="">Motor Premium</option>
+                <option value="">Motor Gold</option>
               </SelectionCars>
-              <div>
-                <SelectionNumbers name="" id="">
-                  <option value="">1</option>
-                  <option value="">1</option>
-                  <option value="">1</option>
-                  <option value="">1</option>
-                </SelectionNumbers>
-              </div>
-              <CaravanController onClick={(state) => {
-                setActive(state)
-              }} />
             </SelectionDiv>
+            <MotorController
+              onClick={(state) => {
+                setActive(state);
+              }}
+            />
           </ItemSort>
-          <CarvanSwitchControl active={active} />
+          <MotorSwitchControl active={active} />
         </ItemContainer>
       </Bigcontainer>
     </div>

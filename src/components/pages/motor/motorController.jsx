@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CaravanController= ({ onClick }) => {
+const MotorController= ({ onClick }) => {
     const [on, setOn] = useState(true);
     return (
         <div style={{display: 'flex', border: '1px solid lightgray', borderTopLeftRadius: '5px',  borderBottomLeftRadius: '5px',borderTopRightRadius: '5px',  borderBottomRightRadius: '5px',  }}>
@@ -34,4 +34,4 @@ const CaravanController= ({ onClick }) => {
     );
 }
 
-export default CaravanController
+export default MotorController
