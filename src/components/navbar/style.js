@@ -116,11 +116,10 @@ display: block;
   top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 400px;
-  width: 100%;
-
+  justify-content: space-between;
+  align-items: space-between;
+  height: 250px;
+  width: 105vw;
   button {
     height: 40px;
     border-radius: 10px;
@@ -139,10 +138,11 @@ display: block;
 `;
 export const DropdownShow = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
   justify-content: space-evenly;
   align-items: center;
   gap: 90px;
+  width: 100%;
   div {
     display: flex;
     flex-direction: column;

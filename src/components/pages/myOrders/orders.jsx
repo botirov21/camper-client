@@ -32,7 +32,6 @@ const Orders = () => {
             <OrderLeft>
             </OrderLeft>
             <ImageOfOffer/>
-
             <OrderRight>
                 <Writings>
                 <div>

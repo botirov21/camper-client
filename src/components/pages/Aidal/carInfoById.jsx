@@ -62,8 +62,8 @@ const Aidal = () => {
           </FirstAidalDiv>
           <LineAidal></LineAidal>
           <FirstAidalDiv>
-            <p>Company</p>
-            <p>{dataByID.company}</p>
+            <p>Brand</p>
+            <p>{dataByID.brand}</p>
           </FirstAidalDiv>
           <FirstAidalDiv>
             <p>People</p>

@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import {
   DropdownShow,
   Dropmenu,
@@ -23,10 +23,26 @@ const reducer = (state, action) => {
   }
 };
 
+const BASEURL = "http://localhost:5050/api/v1";
+
+
 const Navbar = () => {
   const [state, dispatch] = useReducer(reducer, {
     showText: false,
   });
+  const [allData, setAllData] = useState()
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${BASEURL}/motors/allMotors`);
+        const motor = await response.json();
+        setAllData(motor.data)
+      } catch (error) {
+        console.log("Motor data is wrong:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <Navdiv>
@@ -66,22 +82,6 @@ const Navbar = () => {
         {state.showText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
               <div>
                 <img src={car} alt="car" />
                 <p>Car name</p>
