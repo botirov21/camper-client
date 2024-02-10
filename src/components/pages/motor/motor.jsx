@@ -18,12 +18,12 @@ import {
   TotalItemDiv,
 } from "./motorStyle.js";
 import { Link } from "react-router-dom";
-import CaravanController from "./motorController.jsx";
+import CaravanController from "./motor.controller.jsx";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CarvanSwitchControl from "./motorSwitchController.jsx";
-import MotorController from "./motorController.jsx";
-import MotorSwitchControl from "./motorSwitchController.jsx";
+import CarvanSwitchControl from "./motor.switch.controller.jsx";
+import MotorController from "./motor.controller.jsx";
+import MotorSwitchControl from "./motor.switch.controller.jsx";
 
 const BASEURL = "http://localhost:5050/api/v1";
 
@@ -45,15 +45,6 @@ const Motor = () => {
     fetchData();
   }, []);
 
-  // const handleCompanyCheckBoxChange = () => {
-  //   if (checkActive) {
-  //     const checkedBox = allData.filter((data) => data.brand === "BMW");
-  //     setFiltredMotors(checkedBox);
-  //   } else {
-  //     setFiltredMotors(allData);
-  //   }
-  //   setCheckActive(!checkActive);
-  // } 
   return (
     <div>
       <MotorsBack>

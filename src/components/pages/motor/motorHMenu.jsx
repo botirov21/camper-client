@@ -15,6 +15,7 @@ import {
   ChoicesCheck,
   ComapreCars,
   CostContainer,
+  ImageOfOffer,
   OptionsCheck,
   ThinLine,
 } from "./motorStyle";
@@ -175,117 +176,117 @@ const MotorHMenu = () => {
             <input type="text" />
           </div>
         </Adressdiv>
-        <ThinLine />
+        {/* <ThinLine /> */}
         <ChoicesCheck>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
+          <Accordion className='options'>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography variant="h1"  >
                 Brand
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input  style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleAdriaCheckboxClick}/>
-                    <div><p>Adria</p></div>
-                  </div>  
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleSwiftCheckboxClick}/>
-                    <div><p>Swift</p></div>
-                  </div>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleBaileyCheckboxClick}/>
-                    <div><p>Bailey</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleAdriaCheckboxClick} />
+                  <div><p>Adria</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleSwiftCheckboxClick} />
+                  <div><p>Swift</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleBaileyCheckboxClick} />
+                  <div><p>Bailey</p></div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className='options'>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography variant="h1"  >
                 License type
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceACheckboxClick} />
-                    <div><p>A</p></div>
-                  </div>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceBCheckboxClick} />
-                    <div><p>B</p></div>
-                  </div>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceCCheckboxClick}/>
-                    <div><p>C</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input class="radio" style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceACheckboxClick} />
+                  <div><p>A</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceBCheckboxClick} />
+                  <div><p>B</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" onClick={handleLicenceCCheckboxClick} />
+                  <div><p>C</p></div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className='options'>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography variant="h1"  >
                 Number of travelers
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input  style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople3heckboxClick}/>
-                    <div><p>3</p></div>
-                  </div>  
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople4CheckboxClick}/>
-                    <div><p>4</p></div>
-                  </div>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople5CheckboxClick}/>
-                    <div><p>5</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion className='options'>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon/>}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography variant="h1"  >
-                  Location
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-              <Typography style={{display: 'flex', flexDirection: 'column', gap: '10px'}}>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input  style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationSeoulCheckboxClick}/>
-                    <div><p>Seul</p></div>
-                  </div>  
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationBusanCheckboxClick}/>
-                    <div><p>Busan</p></div>
-                  </div>
-                  <div style={{display: 'flex', alignItems: 'center', gap:'10px'}}>
-                    <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationGwangjuCheckboxClick}/>
-                    <div><p>Gwangju</p></div>
-                  </div>
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </ChoicesCheck>
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople3heckboxClick} />
+                  <div><p>3</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople4CheckboxClick} />
+                  <div><p>4</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handlePeople5CheckboxClick} />
+                  <div><p>5</p></div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+          <Accordion className='options'>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography variant="h1"  >
+                Location
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationSeoulCheckboxClick} />
+                  <div><p>Seul</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationBusanCheckboxClick} />
+                  <div><p>Busan</p></div>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <input style={{ width: "22px", height: "22px" }} type="checkbox" name="option" onClick={handleLocationGwangjuCheckboxClick} />
+                  <div><p>Gwangju</p></div>
+                </div>
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </ChoicesCheck>
         <CancelButton>
           <div>
             <button>Cancel</button>
@@ -306,6 +307,7 @@ const MotorHMenu = () => {
           return (
             <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
+                <ImageOfOffer/>
                 <OrderLeft>
                   {/* <img src={hmenuimg} alt="order" /> */}
                 </OrderLeft>

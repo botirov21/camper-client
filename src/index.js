@@ -15,6 +15,7 @@ import Home from "./components/home/home";
 import Motor from "./components/pages/motor/motor";
 import Login from "./components/pages/loginpage/login";
 import Register from "./components/pages/loginpage/register";
+import Caravan from "./components/pages/caravan/caravan";
 
 
 
@@ -30,6 +31,7 @@ root.render(
         <Route path="register" element={<Register/>} />
         <Route path="aidal/:id" element={<Aidal />} />
         <Route path="motors" element={<Motor/>} />
+        <Route path="caravan" element={<Caravan/>} />
         <Route path="places" element={<Places />} />
         <Route path="location" element={<Location />} />
         <Route path="card" element={<AddToCard />} />

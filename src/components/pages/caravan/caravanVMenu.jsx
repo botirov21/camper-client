@@ -1,13 +1,4 @@
-import React, { useState } from "react";
-import {
-  HMenuDesign,
-  Order,
-  OrderButton,
-  OrderLeft,
-  OrderRight,
-  Writings,
-} from "../myOrders/style";
-import { Link } from "react-router-dom";
+import React from "react";
 import {
   Adressdiv,
   Bigcontainer,
@@ -16,20 +7,30 @@ import {
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  ThinLine,
-} from "./caravanStyle";
+  ItemContainer,
+  ItemSort,
+  MotorsBack,
+  OrderSort,
+  Orders,
+  SelectionCars,
+  SelectionDiv,
+  SelectionNumbers,
+  VMenuDesign,
+  VMenuDesignLeft,
+  VmenuWrapper,
+} from "./caravanStyle.js"; import { Link } from "react-router-dom";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useState } from "react";
 
 const BASEURL = "http://localhost:5050/api/v1/";
 
-const CaravanHMenu = () => {
-  const [checkActive, setCheckActive] = useState(true);
-  const [allData, setAllData] = React.useState([]);
-  const [companyCheckboxes, setCompanyCheckboxes] = useState([]);
-  const [filteredCaravan, setFilteredCaravan] = useState([]);
 
-  //getting datas
+const CaravanVMenu = () => {
+  const [allData, setAllData] = useState([]);
+  const [checkActive, setCheckActive] = useState(true);
+  const [filteredCaravan, setFilteredCaravan] = useState([]);
+  const [totalUsers, setTotalUsers] = useState(0);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +38,7 @@ const CaravanHMenu = () => {
         const caravan = await response.json();
         setAllData(caravan.data);
         setFilteredCaravan(caravan.data);
-        setCompanyCheckboxes(caravan.data);
+        setTotalUsers(caravan.data.length);
       } catch (error) {
         console.log("caravan data is wrong:", error);
       }
@@ -45,7 +46,8 @@ const CaravanHMenu = () => {
     fetchData();
   }, []);
 
-//chekboxcheking by car brand
+
+  //chekboxcheking by car brand
   const handleAdriaCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.brand === "Adria");
@@ -74,7 +76,7 @@ const CaravanHMenu = () => {
     setCheckActive(!checkActive);
   };
 
-// checkbox checking by number of people
+  // checkbox checking by number of people
   const handlePeople3heckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.seats === "3");
@@ -103,7 +105,7 @@ const CaravanHMenu = () => {
     setCheckActive(!checkActive);
   };
 
-//checkbox  cheking by Licence
+  //checkbox  cheking by Licence
   const handleLicenceACheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.licence === "A");
@@ -132,8 +134,7 @@ const CaravanHMenu = () => {
     setCheckActive(!checkActive);
   };
 
-
-//checkbox  cheking by Location
+  //checkbox  cheking by Location
   const handleLocationBusanCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.location === "Busan");
@@ -301,36 +302,45 @@ const CaravanHMenu = () => {
           </div>
         </ComapreCars>
       </CostContainer>
-      <Order>
+      <OrderSort>
         {filteredCaravan.map((data) => {
           return (
-            <Link to={`/motorInfo/${data._id}`} key={data._id}>
-              <HMenuDesign>
-              <ImageOfOffer/>
-                <OrderLeft>
-                  {/* <img src={hmenuimg} alt="order" /> */}
-                </OrderLeft>
-                <OrderRight>
-                  <Writings>
-                    <div>
-                      <h1>{data.name}</h1>
-                      <p>{data.brand}</p>
-                    </div>
-                    <div>
-                      <h2>{data.cost}</h2>
-                    </div>
-                  </Writings>
-                  <Writings>
-                    <OrderButton>Order</OrderButton>
-                    <OrderButton>Compare</OrderButton>
-                  </Writings>
-                </OrderRight>
-              </HMenuDesign>
-            </Link>
+            <Orders key={data.id}>
+              <ImageOfOffer />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "40px",
+                }}
+              >
+                <h4>{data.name}</h4>
+              </div>
+              <div>
+                <p>{data.brand}</p>
+              </div>
+              <h2>{data.cost}</h2>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "10px",
+                }}
+              >
+                <Link to={`/aidal/${data._id}`}>
+                  <button>Order</button>
+                </Link>
+                <Link to={`/comparemodels/${data._id}`}>
+                  <button>Compare</button>
+                </Link>
+              </div>
+            </Orders>
           );
         })}
-      </Order>
+      </OrderSort>
     </Bigcontainer>
+
   );
 };
-export default CaravanHMenu;
+
+export default CaravanVMenu;

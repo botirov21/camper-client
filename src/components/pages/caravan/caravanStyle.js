@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import slidercar from "../../../assets/slidecar.png";
 import Car from "../../../assets/offercar1.png";
-import BackCar from "../../../assets/car1.png";
+import BackCaravan from "../../../assets/car2.png";
 
-export const MotorsBack = styled.div`
-  background-image: url(${BackCar});
+export const CaravanBack = styled.div`
+  background-image: url(${BackCaravan});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
