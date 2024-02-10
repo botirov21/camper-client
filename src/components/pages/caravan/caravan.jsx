@@ -1,26 +1,31 @@
 import React, { useState } from "react";
-
-
 import { Link } from "react-router-dom";
-import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Bigcontainer, CaravanBack, CostSort, ItemContainer, ItemSort, SelectionCars, SelectionDiv, SortWrapper, TotalItemDiv } from "./caravanStyle.js";
+import {
+  Bigcontainer,
+  CaravanBack,
+  CostSort,
+  ItemContainer,
+  ItemSort,
+  SelectionCars,
+  SelectionDiv,
+  SortWrapper,
+  TotalItemDiv,
+} from "./caravanStyle.js";
 import CaravanSwitchControl from "./caravan.switch.controller.jsx";
 import CaravanController from "./caravan.controller.jsx";
 
-const BASEURL = "http://localhost:5050/api/v1";
-
+const BASEURL = "http://localhost:5050/api/v1/";
 
 const Caravan = () => {
-  const [active, setActive] = useState(true)
-  const [totalUsers, setTotalUsers] = useState(0);
+  const [active, setActive] = useState(true);
+  const [totalItems, setTotalItems] = useState(0);
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}caravans/allCaravans`);
         const caravan = await response.json();
-        setTotalUsers(caravan.data.length);
+        setTotalItems(caravan.data.length);
       } catch (error) {
         console.log("caravan data is wrong:", error);
       }
@@ -46,7 +51,9 @@ const Caravan = () => {
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
-                <h1>Items <span style={{color: '#006DAB'}}>{totalUsers}</span> </h1>
+                <h1>
+                  Items <span style={{ color: "#006DAB" }}>{totalItems}</span>{" "}
+                </h1>
               </TotalItemDiv>
               <SelectionDiv>
                 <p>Sort by</p>

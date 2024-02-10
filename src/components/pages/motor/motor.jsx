@@ -1,27 +1,17 @@
 import React, { useState } from "react";
 
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
-  ChoicesCheck,
-  ComapreCars,
-  CostContainer,
   CostSort,
   ItemContainer,
   ItemSort,
   MotorsBack,
   SelectionCars,
   SelectionDiv,
-  SelectionNumbers,
   SortWrapper,
   TotalItemDiv,
 } from "./motorStyle.js";
 import { Link } from "react-router-dom";
-import CaravanController from "./motor.controller.jsx";
-import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import CarvanSwitchControl from "./motor.switch.controller.jsx";
 import MotorController from "./motor.controller.jsx";
 import MotorSwitchControl from "./motor.switch.controller.jsx";
 
@@ -50,7 +40,7 @@ const Motor = () => {
       <MotorsBack>
         <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
           <Link to="/home">Home /</Link>
-          <Link to="/caravan">Caravan</Link>
+          <Link to="/motors">Motors</Link>
         </div>
         <h3>Our Ranges</h3>
         <h1>Motors</h1>

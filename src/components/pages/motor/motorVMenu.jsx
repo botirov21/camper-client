@@ -23,21 +23,21 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 
-const BASEURL = "http://localhost:5050/api/v1";
+const BASEURL = "http://localhost:5050/api/v1/";
 
 
 const MotorsVMenu = () => {
   const [allData, setAllData] = useState([]);
   const [checkActive, setCheckActive] = useState(true);
-  const [filteredMotor, setFilteredCaravan] = useState([]);
+  const [filteredMotor, setFilteredMotor] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASEURL}/motors/allMotors`);
+        const response = await fetch(`${BASEURL}motors/allMotors`);
         const motor = await response.json();
         setAllData(motor.data);
-        setFilteredCaravan(motor.data);
+        setFilteredMotor(motor.data);
         setTotalUsers(motor.data.length);
       } catch (error) {
         console.log("Motor data is wrong:", error);
