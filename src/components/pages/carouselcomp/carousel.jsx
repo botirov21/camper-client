@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import car1 from "../../..//assets/car1.png"
 import car2  from "../../../assets/car2.png"
-import car3 from "../../../assets/car3.png"
+import car3 from "../../../assets/tuningback.jpg"
+import car4 from "../../../assets/usedBack.jpg"
+
 import {
   Carousel,
   CarouselItem,
@@ -10,6 +12,7 @@ import {
   CarouselCaption,
 
 } from 'reactstrap';
+import { CarouselWapper } from './carouselStyle';
 
 const items = [
   {
@@ -49,7 +52,7 @@ function Carusel(args) {
 
   const slides = items.map((item) => {
     return (
-      <CarouselItem
+                <CarouselItem 
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
         key={item.src}
@@ -60,10 +63,12 @@ function Carusel(args) {
           captionHeader={item.caption}
         />
       </CarouselItem>
+
     );
   });
 
   return (
+    <CarouselWapper>
     <Carousel
       activeIndex={activeIndex}
       next={next}
@@ -87,6 +92,8 @@ function Carusel(args) {
         onClickHandler={next}
       />
     </Carousel>
+    </CarouselWapper>
+
   );
 }
 

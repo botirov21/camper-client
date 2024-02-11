@@ -8,8 +8,8 @@ export const TuningBack = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 100%;
-  height: 80vh;
+  width: 100%;  
+  height: 80vh; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,6 +41,10 @@ export const TuningBack = styled.div`
     font-weight: 700;
     line-height: normal;
     text-align: center;
+  }
+  @media (max-width: 435px) {
+    width: 100%;
+    height: 40vh;
   }
 `;
 

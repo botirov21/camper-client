@@ -7,18 +7,9 @@ import {
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  ItemContainer,
-  ItemSort,
-  MotorsBack,
   OrderSort,
   Orders,
-  SelectionCars,
-  SelectionDiv,
-  SelectionNumbers,
-  VMenuDesign,
-  VMenuDesignLeft,
-  VmenuWrapper,
-} from "./motorStyle.js"; import { Link } from "react-router-dom";
+} from "./usedCarStyle.js"; import { Link } from "react-router-dom";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
@@ -26,7 +17,7 @@ import { useState } from "react";
 const BASEURL = "http://localhost:5050/api/v1/";
 
 
-const MotorsVMenu = () => {
+const UsedCarVMenu = () => {
   const [allData, setAllData] = useState([]);
   const [checkActive, setCheckActive] = useState(true);
   const [filteredMotor, setFilteredCaravan] = useState([]);
@@ -34,15 +25,16 @@ const MotorsVMenu = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASEURL}motors/allMotors`);
-        const motor = await response.json();
-        setAllData(motor.data);
-        setFilteredCaravan(motor.data);
-        setTotalUsers(motor.data.length);
+        const response = await fetch(`${BASEURL}usedCars/allUsedCars`);
+        const usedCar = await response.json();
+        setAllData(usedCar.data);
+        setFilteredCaravan(usedCar.data);
+        setTotalUsers(usedCar.data.length);
       } catch (error) {
-        console.log("Motor data is wrong:", error);
+        console.log("usedCar data is wrong:", error);
       }
     };
+    fetchData();
   }, []);
 
   //chekboxcheking by car brand
@@ -341,4 +333,4 @@ const MotorsVMenu = () => {
   );
 };
 
-export default MotorsVMenu;
+export default UsedCarVMenu;

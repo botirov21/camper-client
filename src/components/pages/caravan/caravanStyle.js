@@ -42,6 +42,10 @@ export const CaravanBack = styled.div`
     line-height: normal;
     text-align: center;
   }
+  @media (max-width: 435px) {
+    width: 100%;
+    height: 40vh;
+  }
 `;
 
 export const Bigcontainer = styled.div`

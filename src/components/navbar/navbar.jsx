@@ -137,10 +137,6 @@ const Navbar = () => {
                 <img src={car} alt="car" />
                 <p>Car name</p>
               </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
             </DropdownShow>
             <button>See all</button>
           </Dropmenu>
@@ -192,10 +188,6 @@ const Navbar = () => {
                 <img src={car} alt="car" />
                 <p>Car name</p>
               </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
             </DropdownShow>
             <button>See all</button>
           </Dropmenu>
@@ -209,7 +201,7 @@ const Navbar = () => {
             gap: "7px",
           }}
         >
-          <Link to="/motors">Used Car</Link>
+          <Link to="/usedCar">Used Car</Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="15"
@@ -231,10 +223,6 @@ const Navbar = () => {
         {state.showText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
               <div>
                 <img src={car} alt="car" />
                 <p>Car name</p>
@@ -286,10 +274,6 @@ const Navbar = () => {
         {state.showText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
               <div>
                 <img src={car} alt="car" />
                 <p>Car name</p>

@@ -17,6 +17,7 @@ import Login from "./components/pages/loginpage/login";
 import Register from "./components/pages/loginpage/register";
 import Caravan from "./components/pages/caravan/caravan";
 import Tuning from "./components/pages/tuning/tuning";
+import UsedCar from "./components/pages/usedCar/usedCar";
 
 
 
@@ -34,6 +35,7 @@ root.render(
         <Route path="motors" element={<Motor/>} />
         <Route path="caravan" element={<Caravan/>} />
         <Route path="tuning" element={<Tuning/>} />
+        <Route path="usedCar" element={<UsedCar/>} />
         <Route path="places" element={<Places />} />
         <Route path="location" element={<Location />} />
         <Route path="card" element={<AddToCard />} />

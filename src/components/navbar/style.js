@@ -117,7 +117,7 @@ display: block;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: space-between;
+  align-items: center;
   height: 250px;
   width: 105vw;
   button {
@@ -129,6 +129,8 @@ display: block;
     margin-bottom: 70px;
     font-family: monospace;
     padding: 0 60px 0 60px;
+    width:15%;
+    justify-content:center
   }
   button:hover {
     background: #006dab;
