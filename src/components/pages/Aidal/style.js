@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import backimg from "../../../assets/aidalback.png";
+import backimg from "../../../assets/car2.png";
 
 export const AidalBack = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ export const AidalBack = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 70vh;
+  height: 80vh;
   h1 {
     color: #fff;
     text-align: center;

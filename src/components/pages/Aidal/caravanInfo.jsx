@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import imagecarback from "../../../assets/carbackground.png";
+import imagecarback from "../../../assets/offercar1.png";
 import Comfort from "../../../assets/comfort.png";
 import Tyding from "../../../assets/tyding.png";
 import Ventiled from "../../../assets/ventiled.png";
@@ -21,32 +21,33 @@ import {
 import Comment from "./swipableMenu";
 import { Link, useParams } from "react-router-dom";
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1";
+const BASEURL = "http://localhost:5050/api/v1/";
 
-const Aidal = () => {
+  const CaravanInfo = () => {
   const { id } = useParams();
   const [dataByID, setDataByID] = useState("");
 
   useEffect(() => {
-      const fetchMotor = async () => {
-          try {
-              const response = await fetch(`${BASEURL}/tuning/${id}`);
-              const motorData = await response.json();
-              setDataByID(motorData);
-          } catch (error) {
-              console.error("Error fetching motor:", error);
-              // Handle error gracefully, e.g., display an error message
-          } 
-      };
-      fetchMotor();
+    const fetchMotor = async () => {
+      try {
+        const response = await fetch(`${BASEURL}caravans/${id}`);
+        const motorsData = await response.json();
+        setDataByID(motorsData);
+      } catch (error) {
+        console.error("Error fetching motor:", error);
+        // Handle error gracefully, e.g., display an error message
+      }
+    };
+    fetchMotor();
+    console.log(dataByID)
   }, [id]);
+
   return (
     <div style={{ background: "#fafafa" }}>
       <AidalBack>
         <h1>{dataByID.name}</h1>
         <div>
           <Link to="/card">Add to Card</Link>
-          <Link to="/comparemodels">Compare</Link>
         </div>
       </AidalBack>
       <PriceAidal>
@@ -62,7 +63,7 @@ const Aidal = () => {
           </FirstAidalDiv>
           <LineAidal></LineAidal>
           <FirstAidalDiv>
-            <p>Brand</p>
+            <p>Company</p>
             <p>{dataByID.brand}</p>
           </FirstAidalDiv>
           <FirstAidalDiv>
@@ -168,7 +169,6 @@ const Aidal = () => {
           </p>
           <Buttondiv>
             <Link to="/card">Add to Card</Link>
-            <Link to="/comparemodels">Compare</Link>
           </Buttondiv>
         </ComfortAllDivLorem>
         <ComfortImage>
@@ -178,13 +178,11 @@ const Aidal = () => {
         </ComfortImage>
         <Buttondivseconnd>
           <Link to="/card">Add to Card</Link>
-          <Link to="/comparemodels">Compare</Link>
         </Buttondivseconnd>
       </PriceAidal>
-
       <Comment />
     </div>
   );
 };
 
-export default Aidal;
+export default CaravanInfo;

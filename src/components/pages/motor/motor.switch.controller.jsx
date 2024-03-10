@@ -1,10 +1,11 @@
 import React from "react";
-
+import MotorVMenu from "./motorVMenu";
 import MotorHMenu from "./motorHMenu";
-import MotorsVMenu from "./motorVMenu";
 
-const MotorSwitchControl = ({ active }) => {
-  return <>{active ?  <MotorsVMenu/> : <MotorHMenu /> }</>;
+
+
+const MotorSwitchControl= ({ active }) => {
+  return <>{active ?  <MotorVMenu/> : <MotorHMenu/> }</>;
 };
 
 export default MotorSwitchControl;

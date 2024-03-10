@@ -16,13 +16,12 @@ import {
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  OptionsCheck,
   ThinLine,
 } from "./motorStyle";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 const MotorHMenu = () => {
   const [checkActive, setCheckActive] = useState(true);
@@ -35,12 +34,12 @@ const MotorHMenu = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}motors/allMotors`);
-        const motor = await response.json();
-        setAllData(motor.data);
-        setFilteredCaravan(motor.data);
-        setCompanyCheckboxes(motor.data);
+        const caravan = await response.json();
+        setAllData(caravan.data);
+        setFilteredCaravan(caravan.data);
+        setCompanyCheckboxes(caravan.data);
       } catch (error) {
-        console.log("Motor data is wrong:", error);
+        console.log("caravan data is wrong:", error);
       }
     };
     fetchData();
@@ -307,7 +306,7 @@ const MotorHMenu = () => {
           return (
             <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
-                <ImageOfOffer/>
+              <ImageOfOffer/>
                 <OrderLeft>
                   {/* <img src={hmenuimg} alt="order" /> */}
                 </OrderLeft>
@@ -322,8 +321,9 @@ const MotorHMenu = () => {
                     </div>
                   </Writings>
                   <Writings>
+                  <Link to={`/motorInfo/${data._id}`}>
                     <OrderButton>Order</OrderButton>
-                    <OrderButton>Compare</OrderButton>
+                  </Link>
                   </Writings>
                 </OrderRight>
               </HMenuDesign>

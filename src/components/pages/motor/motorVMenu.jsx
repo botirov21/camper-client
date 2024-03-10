@@ -18,32 +18,34 @@ import {
   VMenuDesign,
   VMenuDesignLeft,
   VmenuWrapper,
-} from "./motorStyle.js"; import { Link } from "react-router-dom";
+} from "./motorStyle"; import { Link } from "react-router-dom";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 
-const MotorsVMenu = () => {
+const MotorVMenu = () => {
   const [allData, setAllData] = useState([]);
   const [checkActive, setCheckActive] = useState(true);
-  const [filteredMotor, setFilteredCaravan] = useState([]);
+  const [filteredCaravan, setFilteredCaravan] = useState([]);
   const [totalUsers, setTotalUsers] = useState(0);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}motors/allMotors`);
-        const motor = await response.json();
-        setAllData(motor.data);
-        setFilteredCaravan(motor.data);
-        setTotalUsers(motor.data.length);
+        const caravan = await response.json();
+        setAllData(caravan.data);
+        setFilteredCaravan(caravan.data);
+        setTotalUsers(caravan.data.length);
       } catch (error) {
-        console.log("Motor data is wrong:", error);
+        console.log("caravan data is wrong:", error);
       }
     };
+    fetchData();
   }, []);
+
 
   //chekboxcheking by car brand
   const handleAdriaCheckboxClick = () => {
@@ -301,7 +303,7 @@ const MotorsVMenu = () => {
         </ComapreCars>
       </CostContainer>
       <OrderSort>
-        {filteredMotor.map((data) => {
+        {filteredCaravan.map((data) => {
           return (
             <Orders key={data.id}>
               <ImageOfOffer />
@@ -325,11 +327,8 @@ const MotorsVMenu = () => {
                   gap: "10px",
                 }}
               >
-                <Link to={`/aidal/${data._id}`}>
+                <Link to={`/motorInfo/${data._id}`}>
                   <button>Order</button>
-                </Link>
-                <Link to={`/comparemodels/${data._id}`}>
-                  <button>Compare</button>
                 </Link>
               </div>
             </Orders>
@@ -341,4 +340,4 @@ const MotorsVMenu = () => {
   );
 };
 
-export default MotorsVMenu;
+export default MotorVMenu;

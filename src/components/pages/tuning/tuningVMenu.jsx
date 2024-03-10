@@ -14,7 +14,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 
 const TuningVMenu = () => {

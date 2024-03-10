@@ -1,8 +1,7 @@
 import styled from "styled-components";
-
+export const NavLink =styled.lin
 export const Navdiv = styled.div`
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -24,7 +23,11 @@ export const Navdiv = styled.div`
    
   }
 
-  @media (max-width: 420px) {
+  @media (max-width: 850px) {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
     h1 {
       font-family: monospace;
       font-size: 30px;
@@ -35,6 +38,7 @@ export const Navdiv = styled.div`
       width: 100%;
     }
   }
+
 `;
 export const Hamburger = styled.div`
   display: none;
@@ -44,16 +48,29 @@ export const Hamburger = styled.div`
     cursor: pointer;
   }
   @media (max-width: 420px) {
-    display: none;
-  }
-`;
-export const HamburgerRight = styled.div`
-  display: none;
-
-  @media (max-width: 420px) {
     display: flex;
-  }
+    cursor: pointer; }
 `;
+
+export const Hamburgerdata = styled.div`
+display: flex;
+flex-direction:column;
+gap:20px;
+padding: 5% 0% 0% 10%;
+p{
+font-family: Outfit;
+font-weight: 400px;
+font-size:20px;
+margin: 0px
+}
+h3{
+font-family: Outfit;
+font-weight: 600px;
+font-size:25px;
+color: #4348DB;
+margin-bottom: 5px;
+}
+`
 export const Infos = styled.div`
   display: flex;
   flex-direction: row;
@@ -62,7 +79,6 @@ export const Infos = styled.div`
   gap: 30px;
   width: 100%;
   height: fit-content;
-  
   a {
     font-family: monospace;
     font-style: normal;
@@ -100,12 +116,10 @@ export const Selection = styled.div`
     cursor: pointer;
   }
   @media (max-width: 420px) {
-    select {
       display: none;
-    }
-    .people {
+  }
+  @media (max-width: 850px) {
       display: none;
-    }
   }
 `;
 export const Dropmenu = styled.div`
@@ -116,27 +130,13 @@ display: block;
   top: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   height: 250px;
   width: 105vw;
-  button {
-    height: 40px;
-    border-radius: 10px;
-    background-color: white;
-    color: #006dab;
-    border: 1px #006dab snow;
-    margin-bottom: 70px;
-    font-family: monospace;
-    padding: 0 60px 0 60px;
-    width:15%;
-    justify-content:center
-  }
-  button:hover {
-    background: #006dab;
-    cursor: pointer;
-    color: white;
-  }
+  -webkit-box-shadow: 0 3px 4px #807e7e;
+  -moz-box-shadow:  0 3px 4px #807e7e;
+  box-shadow: 0 3px 4px #807e7e;
 `;
 export const DropdownShow = styled.div`
   display: grid;
@@ -145,6 +145,7 @@ export const DropdownShow = styled.div`
   align-items: center;
   gap: 90px;
   width: 100%;
+
   div {
     display: flex;
     flex-direction: column;

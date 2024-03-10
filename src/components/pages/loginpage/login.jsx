@@ -55,7 +55,7 @@ const Login = () => {
     }
   }  
   return (
-    <body>
+    <div className="wrapper">
       <div className="container">
         <h1>Sign In</h1>
         <div>
@@ -118,7 +118,7 @@ const Login = () => {
           <button className="register">CREATE ACCOUNT</button>
         </Link>
       </div>
-    </body>   
+    </div>   
   );
 };
 

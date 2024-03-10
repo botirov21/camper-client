@@ -15,7 +15,7 @@ import {
 import { Link } from "react-router-dom";;
 
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 
 const Tuning = () => {

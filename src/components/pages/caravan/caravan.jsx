@@ -14,7 +14,7 @@ import {
 import CaravanSwitchControl from "./caravan.switch.controller.jsx";
 import CaravanController from "./caravan.controller.jsx";
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 const Caravan = () => {
   const [active, setActive] = useState(true);

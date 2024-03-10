@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import slidercar from "../../../assets/slidecar.png";
 import Car from "../../../assets/offercar1.png";
-import BackCar from "../../../assets/car1.png";
+import BackCar from "../../../assets/car2.png";
 
 export const MotorsBack = styled.div`
   background-image: url(${BackCar});

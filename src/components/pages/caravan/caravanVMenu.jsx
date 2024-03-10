@@ -23,7 +23,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 
 const CaravanVMenu = () => {
@@ -327,11 +327,8 @@ const CaravanVMenu = () => {
                   gap: "10px",
                 }}
               >
-                <Link to={`/aidal/${data._id}`}>
+                <Link to={`/caravanInfo/${data._id}`}>
                   <button>Order</button>
-                </Link>
-                <Link to={`/comparemodels/${data._id}`}>
-                  <button>Compare</button>
                 </Link>
               </div>
             </Orders>

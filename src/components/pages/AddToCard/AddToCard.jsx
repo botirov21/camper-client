@@ -165,7 +165,7 @@ const AddToCard = () => {
           </Carousel>
           <ButtonDiv>Purchase price 52541$</ButtonDiv>
         </CarView>
-        <div className="registerform">
+        <div style={{ overflowY: 'auto', maxHeight: '700px' }} className="registerform">
           <h2 className="carname">Car name</h2>
           <h3 className="sum">550$</h3>
           <h4>Description</h4>

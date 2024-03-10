@@ -1,35 +1,23 @@
 import React, { useState } from "react";
-
-import {
-  Bigcontainer,
-  CostSort,
-  ItemContainer,
-  ItemSort,
-  MotorsBack,
-  SelectionCars,
-  SelectionDiv,
-  SortWrapper,
-  TotalItemDiv,
-} from "./motorStyle.js";
 import { Link } from "react-router-dom";
+import { Bigcontainer, CostSort, ItemContainer, ItemSort, MotorsBack, SelectionCars, SelectionDiv, SortWrapper, TotalItemDiv } from "./motorStyle.js";
 import MotorController from "./motor.controller.jsx";
 import MotorSwitchControl from "./motor.switch.controller.jsx";
 
-const BASEURL = "http://localhost:5050/api/v1";
-
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 const Motor = () => {
-  const [active, setActive] = useState(true)
-  const [totalUsers, setTotalUsers] = useState(0);
+  const [active, setActive] = useState(true);
+  const [totalItems, setTotalItems] = useState(0);
 
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASEURL}/motors/allMotors`);
-        const motor = await response.json();
-        setTotalUsers(motor.data.length);
+        const response = await fetch(`${BASEURL}motors/allMotors`);
+        const caravan = await response.json();
+        setTotalItems(caravan.data.length);
       } catch (error) {
-        console.log("Motor data is wrong:", error);
+        console.log("caravan data is wrong:", error);
       }
     };
     fetchData();
@@ -40,10 +28,10 @@ const Motor = () => {
       <MotorsBack>
         <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
           <Link to="/home">Home /</Link>
-          <Link to="/motors">Motors</Link>
+          <Link to="/motor">Motor</Link>
         </div>
         <h3>Our Ranges</h3>
-        <h1>Motors</h1>
+        <h1>Motor</h1>
       </MotorsBack>
       <Bigcontainer>
         <ItemContainer>
@@ -53,14 +41,16 @@ const Motor = () => {
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
-                <h1>Items <span style={{color: '#006DAB'}}>{totalUsers}</span> </h1>
+                <h1>
+                  Items <span style={{ color: "#006DAB" }}>{totalItems}</span>{" "}
+                </h1>
               </TotalItemDiv>
               <SelectionDiv>
                 <p>Sort by</p>
                 <SelectionCars placeholder="select">
-                  <option value="">Motor Standart</option>
-                  <option value="">Motor Premium</option>
-                  <option value="">Motor Gold</option>
+                  <option value="">Caravan Standart</option>
+                  <option value="">Caravan Premium</option>
+                  <option value="">Caravan Gold</option>
                 </SelectionCars>
               </SelectionDiv>
               <MotorController

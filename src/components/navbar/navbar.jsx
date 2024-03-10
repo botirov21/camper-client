@@ -9,28 +9,52 @@ import {
   Selection,
 } from "./style";
 import people from "../../assets/Vector.png";
-import car from "../../assets/car.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ImageWithDropdown from "./ImageDropdown/dropdown";
 import Header from "./ResponsiveHamburger";
+import motorCar from "../../assets/slidecar.png";
+import caravanCar from "../../assets/caravanCar.png";
+import tuningCar from "../../assets/tuningCar.png";
+import usedCar from "../../assets/usedCar.png";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import place1 from "../../assets/place1.png";
+import place2 from "../../assets/place2.png";
+import place3 from "../../assets/place3.png";
+import place4 from "../../assets/place4.jpg";
+
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "toggleShowText":
-      return { showText: !state.showText };
+    case "toggleShowMotorText":
+      return { showMotorText: !state.showMotorText, showCaravanText: false, ShowTuningText: false, showUsedCarText: false, showPlacesText: false };
+    case "toggleShowCaravanText":
+      return { showCaravanText: !state.showCaravanText, showMotorText: false, ShowTuningText: false, showUsedCarText: false, showPlacesText: false };
+    case "toggleShowTuningText":
+      return { ShowTuningText: !state.ShowTuningText, showMotorText: false, showCaravanText: false, showUsedCarText: false, showPlacesText: false };
+    case "toggleShowUsedCarText":
+      return { showUsedCarText: !state.showUsedCarText, showMotorText: false, showCaravanText: false, ShowTuningText: false, showPlacesText: false };
+      case "toggleShowPlacesText":
+        return { showPlacesText: !state.showPlacesText, showMotorText: false, showCaravanText: false, ShowTuningText: false, showUsedCarText: false, };
     default:
       return state;
   }
 };
 
-const BASEURL = "http://localhost:5050/api/v1";
+
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1";
 
 
 const Navbar = () => {
   const [state, dispatch] = useReducer(reducer, {
-    showText: false,
+    showMotorText: false,
+    showCaravanText: false,
   });
   const [allData, setAllData] = useState()
+  const [allDataCaravan, setAllDataCaravan] = useState()
+  const [allDataTuning, setAllDataTuning] = useState()
+  const [allDataUsedCars, setAllDataUsedCars] = useState()
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -44,12 +68,50 @@ const Navbar = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseCaravan = await fetch(`${BASEURL}/caravans/allCaravans`);
+        const caravan = await responseCaravan.json();
+        setAllDataCaravan(caravan.data)
+      } catch (error) {
+        console.log("caravan data is wrong:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responsetunings = await fetch(`${BASEURL}/tunings/allTunings`);
+        const tunings = await responsetunings.json();
+        setAllDataTuning(tunings.data)
+      } catch (error) {
+        console.log("tunings data is wrong:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const responseUsedCars = await fetch(`${BASEURL}/usedCars/allUsedCars`);
+        const usedCars = await responseUsedCars.json();
+        setAllDataUsedCars(usedCars.data)
+      } catch (error) {
+        console.log("usedCars data is wrong:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <Navdiv>
       <Hamburger>
         <Header />
       </Hamburger>
-      <a href="/home">Camper</a>
+      <a href="/">Camper</a>
       <Infos>
         <div
           style={{
@@ -60,34 +122,28 @@ const Navbar = () => {
             gap: "7px",
           }}
         >
-          <Link to= "/motors">Motor</Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
-            fill="none"
-            style={{ cursor: "pointer" }}
+          <Link to="/motors">Motor</Link>
+          <ExpandMoreIcon
             onClick={() => {
-              dispatch({ type: "toggleShowText" });
+              dispatch({ type: "toggleShowMotorText" });
             }}
-          >
-            <path
-              d="M11.25 6.125L7.5 9.875L3.75 6.125"
-              stroke="#373737"
-              stroke-width="2"
-            />
-          </svg>
+          />
         </div>
-        {state.showText && (
+        {state.showMotorText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
+              {allData.slice(0, 4).map((data) => {
+                return (
+                  <div key={data.id}>
+                  <img style={{height: '130px'}}  src={motorCar} alt="car" />
+                    <p>{data.name}</p>
+                  </div>
+                )
+              })}
             </DropdownShow>
-            <button>See all</button>
+            <Link to="/motors">
+                <button>See all</button>
+            </Link>
           </Dropmenu>
         )}
         <div
@@ -100,48 +156,30 @@ const Navbar = () => {
           }}
         >
           <Link to="/caravan">Carvan</Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
-            fill="none"
-            style={{ cursor: "pointer" }}
+          <ExpandMoreIcon
             onClick={() => {
-              dispatch({ type: "toggleShowText" });
+              dispatch({ type: "toggleShowCaravanText" });
             }}
-          >
-            <path
-              d="M11.25 6.125L7.5 9.875L3.75 6.125"
-              stroke="#373737"
-              stroke-width="2"
-            />
-          </svg>
+          />
         </div>
-        {state.showText && (
+        {state.showCaravanText  && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
+            {allDataCaravan.slice(0, 4).map((data) => {
+                return (
+                  <div key={data.id}>
+                    <img  style={{height: '130px'}} src={caravanCar} alt="car" />
+                    <p>{data.name}</p>
+                  </div>
+                )
+              })}
             </DropdownShow>
-            <button>See all</button>
+            <Link to="/caravan">
+                <button>See all</button>
+            </Link>
           </Dropmenu>
         )}
-        <div
+         <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -151,45 +189,27 @@ const Navbar = () => {
           }}
         >
           <Link to="/tuning">Tuning</Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
-            fill="none"
-            style={{ cursor: "pointer" }}
+          <ExpandMoreIcon
             onClick={() => {
-              dispatch({ type: "toggleShowText" });
+              dispatch({ type: "toggleShowTuningText" });
             }}
-          >
-            <path
-              d="M11.25 6.125L7.5 9.875L3.75 6.125"
-              stroke="#373737"
-              stroke-width="2"
-            />
-          </svg>
+          />
         </div>
-        {state.showText && (
+        {state.ShowTuningText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
+              {allDataTuning.slice(0, 4).map((data) => {
+                return (
+                  <div>
+                    <img style={{height: '130px'}} src={tuningCar} alt="car" />
+                    <p>{data.name}</p>
+                  </div>
+                )
+              })}
             </DropdownShow>
-            <button>See all</button>
+            <Link to="/tuning">
+                <button>See all</button>
+            </Link>
           </Dropmenu>
         )}
         <div
@@ -202,45 +222,27 @@ const Navbar = () => {
           }}
         >
           <Link to="/usedCar">Used Car</Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
-            fill="none"
-            style={{ cursor: "pointer" }}
+          <ExpandMoreIcon
             onClick={() => {
-              dispatch({ type: "toggleShowText" });
+              dispatch({ type: "toggleShowUsedCarText" });
             }}
-          >
-            <path
-              d="M11.25 6.125L7.5 9.875L3.75 6.125"
-              stroke="#373737"
-              stroke-width="2"
-            />
-          </svg>
+          />
         </div>
-        {state.showText && (
+        {state.showUsedCarText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
+              {allDataUsedCars.slice(0, 4).map((data) => {
+                return (
+                  <div>
+                    <img style={{height: '130px'}} src={usedCar} alt="car" />
+                    <p>{data.name}</p>
+                  </div>
+                )
+              })}
             </DropdownShow>
-            <button>See all</button>
+            <Link to="/usedCar">
+                <button>See all</button>
+            </Link>
           </Dropmenu>
         )}
         <div
@@ -252,57 +254,31 @@ const Navbar = () => {
             gap: "7px",
           }}
         >
-          <Link to="/places">Camping Places</Link>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="15"
-            height="16"
-            viewBox="0 0 15 16"
-            fill="none"
-            style={{ cursor: "pointer" }}
+          <Link to="/places">Camping Place</Link>
+          <ExpandMoreIcon
             onClick={() => {
-              dispatch({ type: "toggleShowText" });
+              dispatch({ type: "toggleShowPlacesText" });
             }}
-          >
-            <path
-              d="M11.25 6.125L7.5 9.875L3.75 6.125"
-              stroke="#373737"
-              stroke-width="2"
-            />
-          </svg>
+          />
         </div>
-        {state.showText && (
+        {state.showPlacesText && (
           <Dropmenu>
             <DropdownShow>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-              <div>
-                <img src={car} alt="car" />
-                <p>Car name</p>
-              </div>
-            </DropdownShow>
-            <button>See all</button>
+                    <img style={{height: '150px'}} src={place1} alt="place" />
+                    <img style={{height: '150px'}} src={place2} alt="place" />
+                    <img style={{height: '150px'}} src={place3} alt="place" />
+                    <img style={{height: '150px', borderRadius: "5px"}} src={place4} alt="place" />
+              </DropdownShow>
+              <Link to="/places">
+                <button>See all</button>
+             </Link>
           </Dropmenu>
         )}
       </Infos>
       <Selection>
-        <ImageWithDropdown />
         <Link to="login">
           <img src={people} className="people" alt="people" />
         </Link>
-        <HamburgerRight>
-          <Header />
-        </HamburgerRight>
         <select name="Language">
           <option value="eng">ENG</option>
           <option value="kor">KOR</option>
