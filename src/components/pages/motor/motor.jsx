@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Bigcontainer, CostSort, ItemContainer, ItemSort, MotorsBack, SelectionCars, SelectionDiv, SortWrapper, TotalItemDiv } from "./motorStyle.js";
+import { AnimatedText, Bigcontainer, CostSort, ItemContainer, ItemSort, MotorsBack, SortWrapper, TotalItemDiv, } from "./motorStyle.js";
 import MotorController from "./motor.controller.jsx";
 import MotorSwitchControl from "./motor.switch.controller.jsx";
 
@@ -37,7 +37,7 @@ const Motor = () => {
         <ItemContainer>
           <SortWrapper>
             <CostSort>
-              <h1>Cost of cars</h1>
+              <h1>Motor Details</h1>
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
@@ -45,14 +45,7 @@ const Motor = () => {
                   Items <span style={{ color: "#006DAB" }}>{totalItems}</span>{" "}
                 </h1>
               </TotalItemDiv>
-              <SelectionDiv>
-                <p>Sort by</p>
-                <SelectionCars placeholder="select">
-                  <option value="">Caravan Standart</option>
-                  <option value="">Caravan Premium</option>
-                  <option value="">Caravan Gold</option>
-                </SelectionCars>
-              </SelectionDiv>
+              <AnimatedText>Explore the World  with Our Camper</AnimatedText>
               <MotorController
                 onClick={(state) => {
                   setActive(state);

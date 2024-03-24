@@ -398,6 +398,7 @@ export const SendQuestion = styled.div`
   justify-content: center;
   align-items: center;
   flex: 2;
+  margin: 0px 30px 0px 30px;
   h1 {
     color: var(--text-color, #023047);
     font-family: sans-serif;
@@ -444,7 +445,8 @@ export const AskedQuestions = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  flex: 1;
+  flex: 2;
+  gap: 25px;
   details {
     color: #373737;
     font-family: monospace;
@@ -466,12 +468,12 @@ export const Linediv = styled.div`
 export const FrequentAsked = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 2;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
   height: fit-content;
-  gap: 15px;
+  gap: 25px;
   details {
     border-radius: 10px;
     background: #fff;

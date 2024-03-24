@@ -23,22 +23,22 @@ import { Link, useParams } from "react-router-dom";
 
 const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
-  const CaravanCarInfo = () => {
+  const UsedCarInfo = () => {
   const { id } = useParams();
   const [dataByID, setDataByID] = useState("");
 
   useEffect(() => {
-    const fetchCaravan = async () => {
+    const fetchUsedCar = async () => {
       try {
-        const response = await fetch(`${BASEURL}caravans/${id}`);
-        const CaravanData = await response.json();
-        setDataByID(CaravanData);
+        const response = await fetch(`${BASEURL}usedCars/${id}`);
+        const UsedCarData = await response.json();
+        setDataByID(UsedCarData);
       } catch (error) {
         console.error("Error fetching motor:", error);
         // Handle error gracefully, e.g., display an error message
       }
     };
-    fetchCaravan();
+    fetchUsedCar();
   }, [id]);
 
   return (
@@ -184,4 +184,4 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
   );
 };
 
-export default CaravanCarInfo;
+export default UsedCarInfo;

@@ -9,14 +9,11 @@ import {
 } from "../myOrders/style";
 import { Link } from "react-router-dom";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  ThinLine,
 } from "./motorStyle";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -165,17 +162,6 @@ const MotorHMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -286,14 +272,8 @@ const MotorHMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -304,7 +284,6 @@ const MotorHMenu = () => {
       <Order>
         {filteredCaravan.map((data) => {
           return (
-            <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
               <ImageOfOffer/>
                 <OrderLeft>
@@ -327,7 +306,6 @@ const MotorHMenu = () => {
                   </Writings>
                 </OrderRight>
               </HMenuDesign>
-            </Link>
           );
         })}
       </Order>

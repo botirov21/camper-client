@@ -37,11 +37,10 @@ const Footer = () => {
         <Contact>
           <h1 style={{ fontSize: `20xp`, fontFamily: `monospace` }}>Contact</h1>
           <SocialMedia>
-            <Link to="https://www.instagram.com/rasheedkh_/">
-            
+            <Link>
               <img src={youtube}  alt="none" />
             </Link>
-            <Link to="">
+            <Link to="https://www.instagram.com/botirov.21/">
            
               <img src={insta} alt="none" />
             </Link>

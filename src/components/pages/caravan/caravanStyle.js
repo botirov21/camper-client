@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { keyframes } from "styled-components";
 import slidercar from "../../../assets/caravanCar.png";
 import Car from "../../../assets/offercar1.png";
 import BackCaravan from "../../../assets/car3.png";
@@ -91,7 +92,7 @@ export const ItemContainer = styled.div`
 export const ItemSort = styled.div`
   display: flex;
   align-items:end;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 20px;
   width: 80%;
   height: fit-content;
@@ -392,8 +393,8 @@ export const ComapreCars = styled.div`
   margin-top: 95px;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
   div {
     display: flex;
     flex-direction: row;
@@ -420,4 +421,22 @@ export const ComapreCars = styled.div`
     line-height: normal;
   }
 `
-
+const gradient = keyframes`
+{
+0% {
+  background-position: 0 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0 50%;
+}}
+`;
+export const AnimatedText = styled.h1`
+  animation: ${gradient} 5s ease-in-out infinite;
+  background: linear-gradient(to right, #010000, #120305, #006DAB, #006DAB);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;

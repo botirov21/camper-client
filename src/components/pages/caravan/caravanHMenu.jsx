@@ -9,14 +9,11 @@ import {
 } from "../myOrders/style";
 import { Link } from "react-router-dom";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  ThinLine,
 } from "./caravanStyle";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -26,7 +23,6 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 const CaravanHMenu = () => {
   const [checkActive, setCheckActive] = useState(true);
   const [allData, setAllData] = React.useState([]);
-  const [companyCheckboxes, setCompanyCheckboxes] = useState([]);
   const [filteredCaravan, setFilteredCaravan] = useState([]);
 
   //getting datas
@@ -37,7 +33,6 @@ const CaravanHMenu = () => {
         const caravan = await response.json();
         setAllData(caravan.data);
         setFilteredCaravan(caravan.data);
-        setCompanyCheckboxes(caravan.data);
       } catch (error) {
         console.log("caravan data is wrong:", error);
       }
@@ -165,17 +160,6 @@ const CaravanHMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -286,14 +270,8 @@ const CaravanHMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -304,7 +282,6 @@ const CaravanHMenu = () => {
       <Order>
         {filteredCaravan.map((data) => {
           return (
-            <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
               <ImageOfOffer/>
                 <OrderLeft>
@@ -327,7 +304,6 @@ const CaravanHMenu = () => {
                   </Writings>
                 </OrderRight>
               </HMenuDesign>
-            </Link>
           );
         })}
       </Order>

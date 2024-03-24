@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import TuningSwitchControl from "./tuning.switch.controller.jsx";
 import TuningController from "./tuning.controller.jsx";
 import {
+  AnimatedText,
   Bigcontainer,
   CostSort,
   ItemContainer,
   ItemSort,
-  SelectionCars,
-  SelectionDiv,
   SortWrapper,
   TotalItemDiv,
   TuningBack,
@@ -49,20 +48,13 @@ const Tuning = () => {
         <ItemContainer>
           <SortWrapper>
             <CostSort>
-              <h1>Cost of cars</h1>
+              <h1>Tuning Details</h1>
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
                 <h1>Items <span style={{color: '#006DAB'}}>{totalUsers}</span> </h1>
               </TotalItemDiv>
-              <SelectionDiv>
-                <p>Sort by</p>
-                <SelectionCars placeholder="select">
-                  <option value="">Motor Standart</option>
-                  <option value="">Motor Premium</option>
-                  <option value="">Motor Gold</option>
-                </SelectionCars>
-              </SelectionDiv>
+              <AnimatedText>Explore the World  with Our Camper</AnimatedText>
               <TuningController
                 onClick={(state) => {
                   setActive(state);

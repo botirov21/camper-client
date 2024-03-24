@@ -1,23 +1,13 @@
 import React from "react";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
   ImageOfOffer,
-  ItemContainer,
-  ItemSort,
-  MotorsBack,
   OrderSort,
   Orders,
-  SelectionCars,
-  SelectionDiv,
-  SelectionNumbers,
-  VMenuDesign,
-  VMenuDesignLeft,
-  VmenuWrapper,
+
 } from "./caravanStyle.js"; import { Link } from "react-router-dom";
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -166,17 +156,6 @@ const CaravanVMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -287,14 +266,8 @@ const CaravanVMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>

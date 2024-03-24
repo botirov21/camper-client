@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
@@ -21,7 +19,6 @@ const UsedCarVMenu = () => {
   const [allData, setAllData] = useState([]);
   const [checkActive, setCheckActive] = useState(true);
   const [filteredMotor, setFilteredCaravan] = useState([]);
-  const [totalUsers, setTotalUsers] = useState(0);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,8 +26,7 @@ const UsedCarVMenu = () => {
         const usedCar = await response.json();
         setAllData(usedCar.data);
         setFilteredCaravan(usedCar.data);
-        setTotalUsers(usedCar.data.length);
-      } catch (error) {
+     } catch (error) {
         console.log("usedCar data is wrong:", error);
       }
     };
@@ -156,17 +152,6 @@ const UsedCarVMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -277,14 +262,8 @@ const UsedCarVMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -317,11 +296,8 @@ const UsedCarVMenu = () => {
                   gap: "10px",
                 }}
               >
-                <Link to={`/aidal/${data._id}`}>
+                <Link to={`/usedCarInfo/${data._id}`}>
                   <button>Order</button>
-                </Link>
-                <Link to={`/comparemodels/${data._id}`}>
-                  <button>Compare</button>
                 </Link>
               </div>
             </Orders>

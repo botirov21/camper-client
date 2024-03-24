@@ -6,7 +6,7 @@ const DisplayNavbar = ({ children }) => {
     const [showNavbar, setShowNavbar] = useState(false);
 
     useEffect(() => {
-        if (location.pathname === '/') {
+        if (location.pathname === '/loginPage') {
             setShowNavbar(false);
         } else if (location.pathname === '/register') {
             setShowNavbar(false);

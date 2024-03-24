@@ -7,6 +7,7 @@ export const ImageCont = styled.div`
   align-items: center;
   padding: 0 60px 0 60px;
   gap: 20px;
+  padding-top: 100px;
   img {
     height: 150px;
     width: 100%;
@@ -20,7 +21,7 @@ export const ImageCont = styled.div`
   @media (max-width: 850px) {
     display: grid;
     grid-template-columns: auto auto auto;
-    
+    padding-top: 100px;
   }
   @media (max-width: 420px) {
     display: grid;

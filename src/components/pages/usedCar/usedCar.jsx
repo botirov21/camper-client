@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import {
+  AnimatedText,
   Bigcontainer,
   CostSort,
   ItemContainer,
@@ -26,14 +27,14 @@ const UsedCar = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}/usedCars/allUsedCars`);
-        const UsedCar = await response.json();
-        setTotalUsers(UsedCar.data.length);
+        const usedCar = await response.json();
+        setTotalUsers(usedCar.data.length);
       } catch (error) {
         console.log("UsedCar data is wrong:", error);
       }
     };
     fetchData();
-  }, []);
+  }, []); 
 
   return (
     <div>
@@ -49,20 +50,13 @@ const UsedCar = () => {
         <ItemContainer>
           <SortWrapper>
             <CostSort>
-              <h1>Cost of cars</h1>
+              <h1>Used Car Details</h1>
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
-                <h1>Items <span style={{color: '#006DAB'}}>{totalUsers}</span> </h1>
+                <h1>Items <span style={{color: '#006DAB'}}>3</span> </h1>
               </TotalItemDiv>
-              <SelectionDiv>
-                <p>Sort by</p>
-                <SelectionCars placeholder="select">
-                  <option value="">Motor Standart</option>
-                  <option value="">Motor Premium</option>
-                  <option value="">Motor Gold</option>
-                </SelectionCars>
-              </SelectionDiv>
+              <AnimatedText>Explore the World  with Our Camper</AnimatedText>
               <UsedCarController
                 onClick={(state) => {
                   setActive(state);

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-export const NavLink =styled.lin
 export const Navdiv = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -57,18 +56,23 @@ display: flex;
 flex-direction:column;
 gap:20px;
 padding: 5% 0% 0% 10%;
-p{
-font-family: Outfit;
-font-weight: 400px;
-font-size:20px;
-margin: 0px
-}
-h3{
-font-family: Outfit;
+h1{
+font-family: Montserrat;
 font-weight: 600px;
 font-size:25px;
-color: #4348DB;
+color: #006DAB;
 margin-bottom: 5px;
+}
+p{
+color: var(--text, #373737);
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+p:hover{
+color: #006DAB;
 }
 `
 export const Infos = styled.div`
@@ -76,8 +80,8 @@ export const Infos = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  gap: 30px;
-  width: 100%;
+  gap: 15px;
+  width: 70%;
   height: fit-content;
   a {
     font-family: monospace;
@@ -106,15 +110,9 @@ export const Infos = styled.div`
 `;
 export const Selection = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
   gap: 15px;
   cursor: pointer;
-  select {
-    border: none;
-    cursor: pointer;
-  }
   @media (max-width: 420px) {
       display: none;
   }

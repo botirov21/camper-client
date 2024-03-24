@@ -9,9 +9,7 @@ import {
 } from "../myOrders/style";
 import { Link } from "react-router-dom";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
@@ -44,13 +42,13 @@ const TuningHMenu = () => {
     fetchData();
   }, []);
 
-//chekboxcheking by car brand
+  //chekboxcheking by car brand
   const handleAdriaCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.brand === "Adria");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -59,7 +57,7 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.brand === "Swift");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -68,18 +66,18 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.brand === "Bailey");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
 
-// checkbox checking by number of people
+  // checkbox checking by number of people
   const handlePeople3heckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.seats === "3");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -88,7 +86,7 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.seats === "4");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -97,18 +95,18 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.seats === "5");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
 
-//checkbox  cheking by Licence
+  //checkbox  cheking by Licence
   const handleLicenceACheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.licence === "A");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -117,7 +115,7 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.licence === "B");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -126,19 +124,19 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.licence === "C");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
 
 
-//checkbox  cheking by Location
+  //checkbox  cheking by Location
   const handleLocationBusanCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.location === "Busan");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -147,7 +145,7 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.location === "Seoul");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -156,7 +154,7 @@ const TuningHMenu = () => {
       const checkedBox = allData.filter((data) => data.location === "Gwangju");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -164,17 +162,6 @@ const TuningHMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -285,14 +272,8 @@ const TuningHMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -303,9 +284,8 @@ const TuningHMenu = () => {
       <Order>
         {filteredTuning.map((data) => {
           return (
-            <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
-                <ImageOfOffer/>
+                <ImageOfOffer />
                 <OrderLeft>
                   {/* <img src={hmenuimg} alt="order" /> */}
                 </OrderLeft>
@@ -320,12 +300,12 @@ const TuningHMenu = () => {
                     </div>
                   </Writings>
                   <Writings>
-                    <OrderButton>Order</OrderButton>
-                    <OrderButton>Compare</OrderButton>
+                    <Link to={`/tuningInfo/${data._id}`}>
+                      <OrderButton>Order</OrderButton>
+                    </Link>
                   </Writings>
                 </OrderRight>
               </HMenuDesign>
-            </Link>
           );
         })}
       </Order>

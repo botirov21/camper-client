@@ -12,8 +12,7 @@ const Question = () => {
     <div>
       <QuestionContainer>
         <AskedQuestions>
-          <div>
-            <Accordion className="options">
+        <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -21,7 +20,7 @@ const Question = () => {
               >
                 <Typography>
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>Name</p> <h3>Question Lorem ipsum dolor sit amet ?</h3>
+                  <h3>Frequently asked questions</h3>
                   </div>
                 </Typography>
               </AccordionSummary>
@@ -33,7 +32,7 @@ const Question = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
@@ -41,7 +40,7 @@ const Question = () => {
               >
                 <Typography>
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>Name</p> <h3>Question Lorem ipsum dolor sit amet ?</h3>
+                  <h3>Frequently asked questions</h3>
                   </div>
                 </Typography>
               </AccordionSummary>
@@ -53,7 +52,7 @@ const Question = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -61,7 +60,7 @@ const Question = () => {
               >
                 <Typography>
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>Name</p> <h3>Question Lorem ipsum dolor sit amet ?</h3>
+                  <h3>Frequently asked questions</h3>
                   </div>
                 </Typography>
               </AccordionSummary>
@@ -73,7 +72,7 @@ const Question = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion  elevation={5}  className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
@@ -81,7 +80,7 @@ const Question = () => {
               >
                 <Typography>
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>Name</p> <h3>Question Lorem ipsum dolor sit amet ?</h3>
+                  <h3>Frequently asked questions</h3>
                   </div>
                 </Typography>
               </AccordionSummary>
@@ -93,15 +92,16 @@ const Question = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>
+                <Typography sx={{border: 'none', boxShadow: "none"}}>
+                  
                   <div style={{ display: "flex", flexDirection: "column" }}>
-                    <p>Name</p> <h3>Question Lorem ipsum dolor sit amet ?</h3>
+                     <h3>Frequently asked questions</h3>
                   </div>
                 </Typography>
               </AccordionSummary>
@@ -113,7 +113,6 @@ const Question = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-          </div>
         </AskedQuestions>
         <SendQuestion>  
             <h1>Send a question</h1>

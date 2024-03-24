@@ -68,15 +68,6 @@ export const Writings = styled.div`
 export const Contact = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media (max-width: 850px) {
-    h1 {
-      display: none;
-    }
-    p {
-      display: none;
-    }
-  }
 `;
 export const SocialMedia = styled.div`
 width: 100%;

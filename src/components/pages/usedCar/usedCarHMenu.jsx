@@ -9,9 +9,7 @@ import {
 } from "../myOrders/style";
 import { Link } from "react-router-dom";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
@@ -33,7 +31,7 @@ const UsedCarHMenu = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASEURL}usedCars/allUsedCars`);
-        const usedCar= await response.json();
+        const usedCar = await response.json();
         setAllData(usedCar.data);
         setFilteredCaravan(usedCar.data);
         setCompanyCheckboxes(usedCar.data);
@@ -44,7 +42,7 @@ const UsedCarHMenu = () => {
     fetchData();
   }, []);
 
-//chekboxcheking by car brand
+  //chekboxcheking by car brand
   const handleAdriaCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.brand === "Adria");
@@ -73,7 +71,7 @@ const UsedCarHMenu = () => {
     setCheckActive(!checkActive);
   };
 
-// checkbox checking by number of people
+  // checkbox checking by number of people
   const handlePeople3heckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.seats === "3");
@@ -102,7 +100,7 @@ const UsedCarHMenu = () => {
     setCheckActive(!checkActive);
   };
 
-//checkbox  cheking by Licence
+  //checkbox  cheking by Licence
   const handleLicenceACheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.licence === "A");
@@ -132,7 +130,7 @@ const UsedCarHMenu = () => {
   };
 
 
-//checkbox  cheking by Location
+  //checkbox  cheking by Location
   const handleLocationBusanCheckboxClick = () => {
     if (checkActive) {
       const checkedBox = allData.filter((data) => data.location === "Busan");
@@ -164,17 +162,6 @@ const UsedCarHMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -285,14 +272,8 @@ const UsedCarHMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -303,11 +284,9 @@ const UsedCarHMenu = () => {
       <Order>
         {filteredCaravan.map((data) => {
           return (
-            <Link to={`/motorInfo/${data._id}`} key={data._id}>
               <HMenuDesign>
-                <ImageOfOffer/>
+                <ImageOfOffer />
                 <OrderLeft>
-                  {/* <img src={hmenuimg} alt="order" /> */}
                 </OrderLeft>
                 <OrderRight>
                   <Writings>
@@ -320,12 +299,12 @@ const UsedCarHMenu = () => {
                     </div>
                   </Writings>
                   <Writings>
-                    <OrderButton>Order</OrderButton>
-                    <OrderButton>Compare</OrderButton>
+                    <Link to={`/usedCarInfo/${data._id}`}>
+                      <OrderButton>Order</OrderButton>
+                    </Link>
                   </Writings>
                 </OrderRight>
               </HMenuDesign>
-            </Link>
           );
         })}
       </Order>

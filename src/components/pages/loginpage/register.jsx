@@ -1,59 +1,88 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+const BASEURL = "https://api-camping.isabek.uz/api/v1/";
 
-const BASEURL = "http://localhost:5050/api/v1/";
 
 
 
 const Register = () => {
-  // Create state variables to hold the form field values and errors
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [errors, setErrors] = useState({});
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-
-
-  const handleRegister =async()=>{
-    // e.preventDefault(); // Prevent form submission
-
-    // Validate repeated password
-    if (password !== repeatPassword) {
-      setErrors({ repeatPassword: 'Passwords do not match' });
-      return;
-    }
+  const handleRegisterSubmit = async () => {
     try {
       const response = await fetch(`${BASEURL}auth/register`, {
-        method: "POST",
-        headers:{
-          "Content-Type":"application/json"
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        body:JSON.stringify({
-          email:email,
-          password:password
-        })
-      }
-      )
-      const data = await response.json()
-      if(response.ok){
-        navigate("/"); // Execute the navigation
-        alert("Succesfuly registered ");
-        console.log(response)
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        navigate('/');
       } else {
-        // Handle non-200 responses appropriately
-        throw new Error(data.message || "Registration failed");
+        setErrors('Registration failed');
       }
     } catch (error) {
-      alert("Registration failed: " + error.message);
+      setErrors('Data not found');
     }
-  }  
+  };
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+    }
+
+    if (!password.trim()) {
+      newErrors.password = 'Password is required';
+    } else if (password.length < 6) {
+      newErrors.password = 'Password should be at least 6 characters';
+    }
+
+    if (password !== repeatPassword) {
+      newErrors.repeatPassword = 'Passwords do not match';
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (validateForm()) {
+      handleRegisterSubmit();
+    }
+  };
+
+  const passwordStrength = () => {
+    if (password.length === 0) {
+      return '';
+    } else if (password.length < 6) {
+      return 'Weak';
+    } else if (password.length < 10) {
+      return 'Moderate';
+    } else {
+      return 'Strong';
+    }
+  };
 
   return (
-    <div>
+    <div className="wrapper">
       <div className="container">
         <h1>Registrate</h1>
-        <div>
+        <div onSubmit={handleSubmit}>
           <div className="email">
             <label htmlFor="email">Email</label>
             <input
@@ -75,6 +104,7 @@ const Register = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             {errors.password && <span style={ {color:'red'}} className="error">{errors.password}</span>}
+            <div className="password-strength">{passwordStrength()}</div>
           </div>
           <div className="password">
             <label htmlFor="repeatpass">Repeat Your Password</label>
@@ -93,9 +123,11 @@ const Register = () => {
               <label>Keep me logged in</label>
             </div>
           </div>
-          <button className="register" type="submit" onClick={handleRegister}>
+          
+          <button className="register" type="submit" onClick={handleSubmit}>
             Registrate
           </button>
+          
         </div>
       </div>
     </div>

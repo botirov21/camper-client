@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
+  AnimatedText,
   Bigcontainer,
   CaravanBack,
   CostSort,
   ItemContainer,
   ItemSort,
-  SelectionCars,
-  SelectionDiv,
   SortWrapper,
   TotalItemDiv,
 } from "./caravanStyle.js";
@@ -47,7 +46,7 @@ const Caravan = () => {
         <ItemContainer>
           <SortWrapper>
             <CostSort>
-              <h1>Cost of cars</h1>
+              <h1>Caravan Details</h1>
             </CostSort>
             <ItemSort>
               <TotalItemDiv>
@@ -55,14 +54,7 @@ const Caravan = () => {
                   Items <span style={{ color: "#006DAB" }}>{totalItems}</span>{" "}
                 </h1>
               </TotalItemDiv>
-              <SelectionDiv>
-                <p>Sort by</p>
-                <SelectionCars placeholder="select">
-                  <option value="">Caravan Standart</option>
-                  <option value="">Caravan Premium</option>
-                  <option value="">Caravan Gold</option>
-                </SelectionCars>
-              </SelectionDiv>
+              <AnimatedText>Explore the World  with Our Camper</AnimatedText>
               <CaravanController
                 onClick={(state) => {
                   setActive(state);

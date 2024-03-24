@@ -5,7 +5,7 @@ import naver from "../../../assets/naver logo.png";
 import google from "../../../assets/google-ion.png";
 import ktalk from "../../../assets/kakao-talk-fill.png";
 
-const BASEURL = "http://localhost:5050/api/v1/";
+const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
 
 
 const Login = () => {
@@ -30,30 +30,32 @@ const Login = () => {
   //   // history.push("/");
   // };
 
-  const handleLogin =async()=>{
+  const handleLogin = async () => {
     try {
       const response = await fetch(`${BASEURL}auth/login`, {
         method: "POST",
-        headers:{
-          "Content-Type":"application/json"
+        headers: {
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify({
-          email:email,
-          password:password
+        body: JSON.stringify({
+          email: email,
+          password: password,
         })
-      }
-      )
-      const data = await response.json()
-      if(response.ok){
-        navigate("/home")
-      }
-      else {
-        throw new Error(data.message || "Registration failed");
+      });
+      const data = await response.json();
+      if (response.ok) {
+        // Assuming the response includes the user's name
+        // Store the user's name in the application state
+        localStorage.setItem("username", data.name);
+        navigate("/");
+      } else {
+        throw new Error(data.message || "Login failed");
       }
     } catch (error) {
-     alert("Password or email is wrong")
+      alert("Password or email is wrong");
     }
-  }  
+  };
+  
   return (
     <div className="wrapper">
       <div className="container">

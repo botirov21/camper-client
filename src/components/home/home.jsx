@@ -28,11 +28,7 @@ const Home = () => {
           <MultiCarousel />
           <h1>Videos</h1>
           <Linediv></Linediv>
-          <Videodiv>
-            <div>
-              <TransitionsModal />
-            </div>
-          </Videodiv>
+          <TransitionsModal />
           <h1>Blogs</h1>
           <Linediv></Linediv>
           <Blogscontainer>  

@@ -10,8 +10,7 @@ const FAQ = () => {
     <div>
       <QuestionContainer>
         <FrequentAsked>
-          <div>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -31,7 +30,7 @@ const FAQ = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
@@ -51,7 +50,7 @@ const FAQ = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -71,7 +70,7 @@ const FAQ = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion  elevation={5}  className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
@@ -91,13 +90,14 @@ const FAQ = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            <Accordion className="options">
+            <Accordion elevation={5} className="options">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
                 id="panel1a-header"
               >
-                <Typography>
+                <Typography sx={{border: 'none', boxShadow: "none"}}>
+                  
                   <div style={{ display: "flex", flexDirection: "column" }}>
                      <h3>Frequently asked questions</h3>
                   </div>
@@ -111,10 +111,9 @@ const FAQ = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-          </div>
         </FrequentAsked>
         <SendQuestion>
-        <h1>Have you got a Question</h1>
+            <h1>Have you got a Question</h1>
             <input type="text" placeholder='Your name' required />
             <input type="text" placeholder='Your email'  required/>
             <textarea name="message" placeholder="Your Question" cols={10} rows={5} />

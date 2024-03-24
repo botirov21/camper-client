@@ -180,7 +180,6 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
           <Link to="/card">Add to Card</Link>
         </Buttondivseconnd>
       </PriceAidal>
-
       <Comment />
     </div>
   );

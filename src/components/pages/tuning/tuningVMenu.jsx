@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  Adressdiv,
   Bigcontainer,
-  CancelButton,
   ChoicesCheck,
   ComapreCars,
   CostContainer,
@@ -21,7 +19,6 @@ const TuningVMenu = () => {
   const [allData, setAllData] = useState([]);
   const [checkActive, setCheckActive] = useState(true);
   const [filteredTuning, setFilteredTuning] = useState([]);
-  const [totalUsers, setTotalUsers] = useState(0);
   React.useEffect(() => {
     const fetchData = async () => {
       try {
@@ -29,7 +26,6 @@ const TuningVMenu = () => {
         const motor = await response.json();
         setAllData(motor.data);
         setFilteredTuning(motor.data);
-        setTotalUsers(motor.data.length);
       } catch (error) {
         console.log("Motor data is wrong:", error);
       }
@@ -43,7 +39,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.brand === "Adria");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -52,7 +48,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.brand === "Swift");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -61,7 +57,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.brand === "Bailey");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -72,7 +68,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.seats === "3");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -81,7 +77,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.seats === "4");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -90,7 +86,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.seats === "5");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -101,7 +97,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.licence === "A");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -110,7 +106,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.licence === "B");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -119,7 +115,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.licence === "C");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -130,7 +126,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.location === "Busan");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -139,7 +135,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.location === "Seoul");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -148,7 +144,7 @@ const TuningVMenu = () => {
       const checkedBox = allData.filter((data) => data.location === "Gwangju");
       setFilteredTuning(checkedBox);
     } else {
-        setFilteredTuning(allData);
+      setFilteredTuning(allData);
     }
     setCheckActive(!checkActive);
   };
@@ -156,17 +152,6 @@ const TuningVMenu = () => {
   return (
     <Bigcontainer>
       <CostContainer>
-        <Adressdiv>
-          <div>
-            <label>From</label>
-            <input type="text" />
-          </div>
-          <div>
-            <label htmlFor="">to</label>
-            <input type="text" />
-          </div>
-        </Adressdiv>
-        {/* <ThinLine /> */}
         <ChoicesCheck>
           <Accordion className='options'>
             <AccordionSummary
@@ -277,14 +262,8 @@ const TuningVMenu = () => {
             </AccordionDetails>
           </Accordion>
         </ChoicesCheck>
-        <CancelButton>
-          <div>
-            <button>Cancel</button>
-            <button>Search</button>
-          </div>
-        </CancelButton>
         <ComapreCars>
-          <h1>Compare</h1>
+          <h1>New Models</h1>
           <div>
             <span></span>
             <span></span>
@@ -317,11 +296,8 @@ const TuningVMenu = () => {
                   gap: "10px",
                 }}
               >
-                <Link to={`/aidal/${data._id}`}>
+                <Link to={`/tuningInfo/${data._id}`}>
                   <button>Order</button>
-                </Link>
-                <Link to={`/comparemodels/${data._id}`}>
-                  <button>Compare</button>
                 </Link>
               </div>
             </Orders>
