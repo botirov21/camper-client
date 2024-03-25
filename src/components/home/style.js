@@ -23,13 +23,13 @@ export const Videodiv = styled.div`
   height: fit-content;
   padding: 0 60px 0 60px;
  
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     width: 100%;
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-evenly;
     align-items: center;
-  }
+  } 
 
   @media (max-width: 435px) {
     width: 100%;

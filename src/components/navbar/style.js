@@ -22,7 +22,7 @@ export const Navdiv = styled.div`
    
   }
 
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
   display: flex;
   padding: 30px;
   justify-content: space-between;
@@ -42,7 +42,7 @@ export const Navdiv = styled.div`
 export const Hamburger = styled.div`
   display: none;
 
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     display: flex;
     cursor: pointer;
   }
@@ -104,7 +104,7 @@ export const Infos = styled.div`
     font-family: monospace;
   
   }
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `;
@@ -116,7 +116,7 @@ export const Selection = styled.div`
   @media (max-width: 420px) {
       display: none;
   }
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
       display: none;
   }
 `;

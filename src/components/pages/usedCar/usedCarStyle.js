@@ -43,7 +43,7 @@ export const UsedCarBack = styled.div`
     line-height: normal;
     text-align: center;
   }
-  @media (max-width: 435px) {
+  @media (max-width: 350px) {
     width: 100%;
     height: 40vh;
   }
@@ -115,12 +115,13 @@ display: flex;
 align-items: end;
   border-bottom: solid 1px rgba(55, 55, 55, 0.5);
   width: 16%;
-  @media (max-width: 440px) {
+  @media (max-width: 560px) {
     display: none;
   }
 `
 export const SortWrapper = styled.div`
 display: flex;
+justify-content:center;
 gap: 45px;
 width: 100%;
 padding: 0 20px;
@@ -132,7 +133,7 @@ export const OrderSort = styled.div`
   height: fit-content;
   gap: 20px;
   padding: 0 30px;
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     display: grid;
     grid-template-columns: auto auto;
     width: 100%;
@@ -390,7 +391,7 @@ export const CancelButton = styled.div`
   }
 `;
 export const ComapreCars = styled.div`
-  margin-top: 95px;
+  margin-top: 75px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -420,7 +421,7 @@ export const ComapreCars = styled.div`
     font-weight: 600;
     line-height: normal;
   }
-`
+`;
 const gradient = keyframes`
 {
 0% {
@@ -439,4 +440,8 @@ export const AnimatedText = styled.h1`
   background-size: 300%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 850px){
+    display:none;
+  }
 `;

@@ -43,7 +43,7 @@ export const MotorsBack = styled.div`
     line-height: normal;
     text-align: center;
   }
-  @media (max-width: 435px) {
+  @media (max-width: 350px) {
     width: 100%;
     height: 40vh;
   }
@@ -115,7 +115,7 @@ display: flex;
 align-items: end;
   border-bottom: solid 1px rgba(55, 55, 55, 0.5);
   width: 16%;
-  @media (max-width: 440px) {
+  @media (max-width: 850px) {
     display: none;
   }
 `
@@ -124,6 +124,7 @@ display: flex;
 gap: 45px;
 width: 100%;
 padding: 0 20px;
+justify-content:center;
 `
 export const OrderSort = styled.div`
   display: grid;
@@ -132,7 +133,7 @@ export const OrderSort = styled.div`
   height: fit-content;
   gap: 20px;
   padding: 0 30px;
-  @media (max-width: 850px) {
+  @media (max-width: 1100px) {
     display: grid;
     grid-template-columns: auto auto;
     width: 100%;
@@ -439,4 +440,8 @@ export const AnimatedText = styled.h1`
   background-size: 300%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  @media (max-width: 850px){
+    display:none;
+  }
 `;
