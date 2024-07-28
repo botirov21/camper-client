@@ -1,0 +1,28 @@
+
+name: CD
+
+on:
+  push:
+    branches: [mster]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: connect to server and deploy changes
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            cd camper-client
+            git pull origin master
+            rm -rf ./build
+            rm -rf /var/www/dream-camper
+            mkdir /var/www/dream-camper
+            npm i 
+            npm run build
+            cp -rf ./build/* /var/www/dream-camper
+            pm2 restart dream-camper
