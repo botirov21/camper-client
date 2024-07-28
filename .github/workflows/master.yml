@@ -17,7 +17,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: 22
           script: |
-            cd camper-client
+            cd camper-client/
             git pull origin master
             rm -rf ./build
             rm -rf /var/www/dream-camper
