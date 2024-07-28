@@ -22,7 +22,7 @@ jobs:
             rm -rf ./build
             rm -rf /var/www/dream-camper
             mkdir /var/www/dream-camper
-            npm i 
+            npm i
             npm run build
             cp -rf ./build/* /var/www/dream-camper
             pm2 restart dream-camper
