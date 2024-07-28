@@ -1,42 +1,28 @@
-name: Deploy
+
+name: CD
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-
-      - name: Deploy via SSH
+      - name: connect to server and deploy changes
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          port: ${{ secrets.SSH_PORT }}
+          host: ${{ secrets.HOST }}
+          username: root
+          key: ${{ secrets.PASS }}
+          port: 22
           script: |
             cd camper-client/
             git pull origin master
             rm -rf ./build
             rm -rf /var/www/dream-camper
             mkdir /var/www/dream-camper
-            npm i
+            npm i 
             npm run build
             cp -rf ./build/* /var/www/dream-camper
             pm2 restart dream-camper
