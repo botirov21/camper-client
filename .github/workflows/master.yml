@@ -13,15 +13,16 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: root
-          password: ${{ secrets.PASS }}
+          key: ${{ secrets.SSH_KEY }}
           port: 22
           script: |
+            set -e
             cd camper-client/
             git pull origin master
             rm -rf ./build
             rm -rf /var/www/dream-camper
-            mkdir /var/www/dream-camper
-            npm i
+            mkdir -p /var/www/dream-camper
+            npm install --legacy-peer-deps
             npm run build
             cp -rf ./build/* /var/www/dream-camper
             pm2 restart dream-camper
