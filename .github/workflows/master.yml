@@ -22,13 +22,13 @@ jobs:
             git stash pop || echo "No stashed changes to apply"  # Attempt to reapply stashed changes if any
 
             rm -rf ./build
-            rm -rf /var/www/dream-camper
-            mkdir /var/www/dream-camper
+            rm -rf /var/www/camper
+            mkdir /var/www/camper
 
             npm install --legacy-peer-deps       # Use --legacy-peer-deps to avoid dependency conflicts
             npm run build
 
-            cp -rf ./build/* /var/www/dream-camper
+            cp -rf ./build/* /var/www/camper
 
             # Start the PM2 process if not running, otherwise restart it
             pm2 start npm --name "dream-camper" -- run start || pm2 restart dream-camper
