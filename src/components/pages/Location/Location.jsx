@@ -9,30 +9,30 @@ import {
 } from "./LocationStyle";
 import imagecamping from "../../../assets/place1.png";
 import locationimg from "../../../assets/location.png";
-import Fade from 'react-reveal/Fade';
+// import Fade from 'react-reveal/Fade';
 
 const Location = () => {
   return (
     <>
       <ImageCont>
-        <Fade left>
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
-        <Fade left>
+        {/* </Fade> */}
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
-        <Fade left>
+        {/* </Fade> */}
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
-        <Fade left>
+        {/* </Fade> */}
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
-        <Fade left>
+        {/* </Fade> */}
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
-        <Fade left>
+        {/* </Fade> */}
+        {/* <Fade left> */}
         <img src={imagecamping} alt="place" />
-        </Fade>
+        {/* </Fade> */}
       
       </ImageCont>
       <h1

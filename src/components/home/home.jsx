@@ -13,7 +13,7 @@ import image from "../../assets/car22.png";
 import image1 from "../../assets/car33.png";
 import image2 from "../../assets/imag3car.png";
 import MultiCarousel from "../pages/multicarousel/multicarousel";
-import Flip from "react-reveal/Flip";
+// import Flip from "react-reveal/Flip";
 import TransitionsModal from "../popup/pupup";
 import Carusel from "../pages/carouselcomp/carousel";
 
@@ -43,24 +43,14 @@ const Home = () => {
               </p>
             </Loremcontainer>
             <Imagecontainer>
-              <Flip top>
+              {/* <Flip top> */}
                 <img src={image} alt="Image 1" />
-              </Flip>
-              <Flip right>
+              {/* </Flip> */}
                 <img src={image1} alt="Image 2" />
-              </Flip>
-              <Flip left>
                 <img src={image2} alt="Image 3" />
-              </Flip>
-              <Flip bottom>
                 <img src={image} alt="Image 4" />
-              </Flip>
-              <Flip top>
                 <img src={image1} alt="Image 5" />
-              </Flip>
-              <Flip right>
                 <img src={image2} alt="Image 6" />
-              </Flip>
             </Imagecontainer>
           </Blogscontainer>
         </Homecontainer>

@@ -3,7 +3,6 @@ import placeone from "../../../assets/place1.png";
 import placetwo from "../../../assets/place3.png";
 import placethree from "../../../assets/place2.png";
 import { PlaceOffers, PlaceOptions, PlacesBack } from "./placesStyle";
-import Reveal from "react-reveal/Reveal";
 import { Link } from "react-router-dom";
 
 const Places = () => {
@@ -13,7 +12,7 @@ const Places = () => {
         <Link to="/">Home / Camping place</Link>
         <p>Camping places</p>
       </PlacesBack>
-      <Reveal>
+      {/* <Reveal> */}
         <PlaceOptions>
           <Link to="/location">
             <PlaceOffers>
@@ -70,7 +69,7 @@ const Places = () => {
             </PlaceOffers>
           </Link>
         </PlaceOptions>
-      </Reveal>
+      {/* </Reveal> */}
     </div>
   );
 };

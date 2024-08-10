@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import SwipeableViews from 'react-swipeable-views';
+// import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Tabs from '@mui/material/Tabs';
@@ -129,7 +129,7 @@ export default function Comment() {
           <Tab label="Contact" {...a11yProps(3)} />
         </Tabs>
       </AppBar>
-      <SwipeableViews
+      {/* <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
@@ -161,7 +161,7 @@ export default function Comment() {
             {fab.icon}
           </Fab>
         </Zoom>
-      ))}
+      ))} */}
     </Box>
   );
 }

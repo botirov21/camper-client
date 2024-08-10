@@ -5,7 +5,7 @@ import Tyding from "../../../assets/tyding.png";
 import Ventiled from "../../../assets/ventiled.png";
 import Access from "../../../assets/access.png";
 import Heating from "../../../assets/heating.png";
-import Zoom from "react-reveal/Zoom";
+// import Zoom from "react-reveal/Zoom";
 import {
   AidalBack,
   Buttondiv,
@@ -52,9 +52,9 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
       </AidalBack>
       <PriceAidal>
         <ImageDivCar>
-          <Zoom left>
+          {/* <Zoom left> */}
             <img src={imagecarback} alt="vcar" />
-          </Zoom>
+          {/* </Zoom> */}
         </ImageDivCar>
         <InfoDiv>
           <FirstAidalDiv>
@@ -78,9 +78,9 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
       </PriceAidal>
       <PriceAidal>
         <ComfortAllDivLorem>
-          <Zoom>
+          {/* <Zoom> */}
             <h1>Comfort</h1>
-          </Zoom>
+          {/* </Zoom> */}
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum nibh
             urna sagittis arcu natoque lectus cursus felis. Nec, felis risus, id
@@ -92,21 +92,21 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
           </p>
         </ComfortAllDivLorem>
         <ComfortImage>
-          <Zoom right>
+          {/* <Zoom right> */}
             <img src={Comfort} alt="Comfort" />
-          </Zoom>
+          {/* </Zoom> */}
         </ComfortImage>
       </PriceAidal>
       <PriceAidal>
         <ComfortImage>
-          <Zoom left>
+          {/* <Zoom left> */}
             <img src={Tyding} alt="tyding" />
-          </Zoom>
+          {/* </Zoom> */}
         </ComfortImage>
         <ComfortAllDivLorem>
-          <Zoom>
+          {/* <Zoom> */}
             <h1>Tidying away is child's play!</h1>
-          </Zoom>
+          {/* </Zoom> */}
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rutrum nibh
             urna sagittis arcu natoque lectus cursus felis. Nec, felis risus, id
@@ -120,9 +120,9 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
       </PriceAidal>
       <PriceAidal>
         <ComfortAllDivLorem>
-          <Zoom>
+          {/* <Zoom> */}
             <h1>Ventilated , Lit up</h1>
-          </Zoom>
+          {/* </Zoom> */}
           <p>
             In our vans and motorhomes, all our body lighting is 100% LED: a
             guarantee of energy efficiency and durability. As for ventilation,
@@ -134,21 +134,21 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
           </p>
         </ComfortAllDivLorem>
         <ComfortImage>
-          <Zoom right>
+          {/* <Zoom right> */}
             <img src={Ventiled} alt="Ventiled" />
-          </Zoom>
+          {/* </Zoom> */}
         </ComfortImage>
       </PriceAidal>
       <PriceAidal>
         <ComfortImage>
-          <Zoom left>
+          {/* <Zoom left> */}
             <img src={Access} alt="Access" />
-          </Zoom>
+          {/* </Zoom> */}
         </ComfortImage>
         <ComfortAllDivLorem>
-          <Zoom>
+          {/* <Zoom> */}
             <h1>Easy Access</h1>
-          </Zoom>
+          {/* </Zoom> */}
           <p>
             We add little touches that your joints will thank you for… All our
             motorhomes are equipped with a built-in step to facilitate entry to
@@ -158,9 +158,9 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
       </PriceAidal>
       <PriceAidal>
         <ComfortAllDivLorem>
-          <Zoom>
+          {/* <Zoom> */}
             <h1>Heating when driving</h1>
-          </Zoom>
+          {/* </Zoom> */}
           <p>
             Fuel heating is now very popular in the industry, but this was not
             always the case; Camper (once again) led the way in this area over
@@ -172,9 +172,9 @@ const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
           </Buttondiv>
         </ComfortAllDivLorem>
         <ComfortImage>
-          <Zoom right>
+          {/* <Zoom right> */}
             <img src={Heating} alt="heeating" />
-          </Zoom>
+          {/* </Zoom> */}
         </ComfortImage>
         <Buttondivseconnd>
           <Link to="/card">Add to Card</Link>
