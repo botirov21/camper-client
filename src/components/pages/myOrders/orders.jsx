@@ -4,7 +4,7 @@ import order from "../../../assets/order.png"
 import { useParams } from 'react-router-dom';
 import { ImageOfOffer } from '../motor/motorStyle';
 
-const BASEURL = "http://localhost:5050/api/v1";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 
 const Orders = () => {
@@ -14,7 +14,7 @@ const Orders = () => {
   useEffect(() => {
       const fetchMotor = async () => {
           try {
-              const response = await fetch(`${BASEURL}/motors/${id}`);
+              const response = await fetch(`${BASEURL}motors/${id}`);
               const motorData = await response.json();
               setDataByID(motorData);
           } catch (error) {
