@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 import UsedCarSwitchControl from "./usedCar.switch.controller.jsx";
 import UsedCarController from "./usedCar.controller.jsx";
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 
 const UsedCar = () => {
@@ -26,7 +26,7 @@ const UsedCar = () => {
   React.useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${BASEURL}/usedCars/allUsedCars`);
+        const response = await fetch(`${BASEURL}usedCars/allUsedCars`);
         const usedCar = await response.json();
         setTotalUsers(usedCar.data.length);
       } catch (error) {

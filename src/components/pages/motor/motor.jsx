@@ -4,7 +4,7 @@ import { AnimatedText, Bigcontainer, CostSort, ItemContainer, ItemSort, MotorsBa
 import MotorController from "./motor.controller.jsx";
 import MotorSwitchControl from "./motor.switch.controller.jsx";
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 const Motor = () => {
   const [active, setActive] = useState(true);

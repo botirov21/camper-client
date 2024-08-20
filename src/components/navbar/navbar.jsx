@@ -76,7 +76,7 @@ const reducer = (state, action) => {
   }
 };
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1";
+const BASEURL = "https://api.dream-camper.kr/api/v1";
 
 const Navbar = () => {
   const [dispatchState, dispatch] = useReducer(reducer, {

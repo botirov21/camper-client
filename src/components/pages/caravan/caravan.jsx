@@ -13,7 +13,7 @@ import {
 import CaravanSwitchControl from "./caravan.switch.controller.jsx";
 import CaravanController from "./caravan.controller.jsx";
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 const Caravan = () => {
   const [active, setActive] = useState(true);

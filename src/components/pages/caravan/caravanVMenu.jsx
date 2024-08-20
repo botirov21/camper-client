@@ -13,7 +13,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState } from "react";
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 
 const CaravanVMenu = () => {

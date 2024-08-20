@@ -18,7 +18,7 @@ import {
 import { Accordion, AccordionDetails, AccordionSummary, Typography, } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const BASEURL = "https://rahmatullo-camping-api.isabek.uz/api/v1/";
+const BASEURL = "https://api.dream-camper.kr/api/v1/";
 
 const CaravanHMenu = () => {
   const [checkActive, setCheckActive] = useState(true);

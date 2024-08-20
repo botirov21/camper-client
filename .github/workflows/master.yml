@@ -17,18 +17,11 @@ jobs:
           port: 22
           script: |
             cd camper-client/
-            git stash                            # Stash any local changes
-            git pull origin master               # Pull the latest changes from the master branch
-            git stash pop || echo "No stashed changes to apply"  # Attempt to reapply stashed changes if any
-
+            git pull origin master
             rm -rf ./build
-            rm -rf /var/www/dream-camper
-            mkdir /var/www/dream-camper
-
-            npm install --legacy-peer-deps       # Use --legacy-peer-deps to avoid dependency conflicts
+            rm -rf /var/www/camper
+            mkdir /var/www/camper
+            npm i
             npm run build
-
             cp -rf ./build/* /var/www/dream-camper
-
-            # Start the PM2 process if not running, otherwise restart it
-            pm2 start npm --name "dream-camper" -- run start || pm2 restart dream-camper
+            pm2 restart dream-camper
