@@ -23,5 +23,5 @@ jobs:
             mkdir /var/www/camper
             npm i
             npm run build
-            cp -rf ./build/* /var/www/dream-camper
+            cp -rf ./build/* /var/www/camper
             pm2 restart dream-camper
